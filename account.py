@@ -1,5 +1,6 @@
 import abc  # abstract base classes
 from colorama import Fore
+from bank_system.file_manager import FileManager
 from bank_system.history import History
 
 
@@ -12,6 +13,8 @@ class Account(abc.ABC):
         self._holder = holder
         self._destination = destination
         self._history = History(self._number)
+        self.file_path = f"accounts_list.txt"
+        self.accounts = FileManager.load_data(self.file_path)
 
     def __str__(self):
         return (Fore.GREEN + f"\nAccount Info:"
@@ -67,3 +70,17 @@ class Account(abc.ABC):
     @property
     def number(self):
         return self._number
+
+    def add_client(self):
+        new_account = [self.number, self._holder, self.balance, self._limit]
+        self.accounts.append(new_account)
+        FileManager.save_data(self.file_path, self.accounts)
+
+    @staticmethod
+    def list_accounts(accounts_list):
+        result = "\nAccounts:\n"
+
+        for a in accounts_list:
+            result += f"- Number: {a[0]}, Holder: {a[1]}, Balance: {a[2]}, Limit: {a[3]}\n"
+
+        return result
