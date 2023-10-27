@@ -6,11 +6,8 @@ class CheckingAccount(Account):
     def __init__(self, holder, number, balance, limit):
         super().__init__(holder, number, balance, limit)
 
-    def update(self, tax):
-        super().update(tax * 2.0)
-
-    def get_tax_value(self):
-        return self._balance * 0.01
+    def update(self):
+        super().update(0.01 * 2.0)
 
 
 class SavingAccount(Account):
@@ -18,11 +15,8 @@ class SavingAccount(Account):
     def __init__(self, holder, number, balance, limit):
         super().__init__(holder, number, balance, limit)
 
-    def update(self, tax):
-        super().update(tax * 2.5)
-
-    def get_tax_value(self):
-        return self._balance * 0.02
+    def update(self):
+        super().update(0.05 * 2.5)
 
 
 class InvestmentAccount(Account):
@@ -30,8 +24,6 @@ class InvestmentAccount(Account):
     def __init__(self, holder, number, balance, limit):
         super().__init__(holder, number, balance, limit)
 
-    def update(self, tax):
-        super().update(tax * 2.8)
+    def update(self):
+        super().update(0.08 * 2.8)
 
-    def get_tax_value(self):
-        return self._balance * 0.03
