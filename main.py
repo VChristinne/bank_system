@@ -7,6 +7,11 @@ def initialize_checking_account(client_data, account_data):
     client = Client(*client_data)
     account = CheckingAccount(client.name, *account_data)
     history = History(account.number)
+
+    # name | number | balance | limit
+    with open("checking-accounts.txt", "a") as file:
+        file.write(f"{client_data[2]} | {account_data[1]} | {account_data[2]} | {account_data[3]}\n")
+
     return client, account, history
 
 
@@ -14,6 +19,11 @@ def initialize_saving_account(client_data, account_data):
     client = Client(*client_data)
     account = SavingAccount(client.name, *account_data)
     history = History(account.number)
+
+    # name | number | balance | limit
+    with open("saving-accounts.txt", "a") as file:
+        file.write(f"{client_data[0]} | {account_data[1]} | {account_data[2]} | {account_data[3]}\n")
+
     return client, account, history
 
 
@@ -21,7 +31,25 @@ def initialize_investment_account(client_data, account_data):
     client = Client(*client_data)
     account = InvestmentAccount(client.name, *account_data)
     history = History(account.number)
+
+    # name | number | balance | limit
+    with open("investment-accounts.txt", "a") as file:
+        file.write(f"{client_data[0]} | {account_data[1]} | {account_data[2]} | {account_data[3]}\n")
+
     return client, account, history
+
+
+def load_existing_accounts():
+    clients = []
+    accounts = []
+    with open("accounts.txt", "r") as file:
+        for line in file:
+            cpf, number, balance, limit = line.strip().split("|")
+            client = Client("", "", cpf)
+            account = CheckingAccount(client.name, number, float(balance), float(limit))
+            clients.append(client)
+            accounts.append(account)
+    return clients, accounts
 
 
 def main():
