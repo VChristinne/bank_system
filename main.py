@@ -21,9 +21,9 @@ def main():
     client_1, checking_account_1, history_1 = initialize_client_and_account(client_1_data, account_1_data)
     client_2, checking_account_2, history_2 = initialize_client_and_account(client_2_data, account_2_data)
 
-    deposit_value = 10
+    # deposit_value = 10
     # withdraw_value = 10
-    transfer_value = 500
+    # transfer_value = 500
 
     '''
     try:
@@ -39,13 +39,12 @@ def main():
         print(e)
     '''
 
+    '''
     try:
         checking_account_1.transfer_to(checking_account_2, 50)
     except ValueError as e:
         print(e)
-
-    print(checking_account_1.get_history())
-    print(checking_account_2.get_history())
+    '''
 
     print(checking_account_1)
     print(checking_account_2)
