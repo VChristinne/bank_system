@@ -1,38 +1,37 @@
+class FileManager:
+    @staticmethod
+    def load_data(file_path):
+        try:
+            with open(file_path, "r") as file:
+                return [line.strip().split("|") for line in file]
+        except FileNotFoundError:
+            return []
+
+    @staticmethod
+    def save_data(file_path, data):
+        with open(file_path, "w") as file:
+            for item in data:
+                file.write("|".join(item) + "\n")
+
+
 class Client:
     def __init__(self, name, surname, cpf):
         self.name = name
         self.surname = surname
         self.cpf = cpf
-        self.clients = []
         self.file_path = f"client_list.txt"
-        self.load_clients()
+        self.clients = FileManager.load_data(self.file_path)
 
-    def load_clients(self):
-        try:
-            with open(self.file_path, "r") as file:
-                self.clients = file.readlines()
-        except FileNotFoundError:
-            pass
+    def add_client(self):
+        new_client = [self.name, self.surname, self.cpf]
+        self.clients.append(new_client)
+        FileManager.save_data(self.file_path, self.clients)
 
-    def save_clients(self):
-        with open(self.file_path, "w") as file:
-            for client in self.clients:
-                file.write(client + "\n")
-
-    def add_clients(self, client):
-        self.clients.append(client)
-        with open(self.file_path, "a") as file:
-            file.write(client + "\n")
-
-    def get_client(self):
-        self.load_clients()
-        return self.clients
-
-    def __str__(self):
-        self.load_clients()
+    @staticmethod
+    def list_clients(clients_list):
         result = "\nClients:\n"
 
-        for c in self.clients:
-            result += f"- {c}"
+        for c in clients_list:
+            result += f"- Name: {c[0]}, Surname: {c[1]}, CPF: {c[2]}\n"
 
         return result
