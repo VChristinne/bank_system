@@ -2,6 +2,7 @@ from bank_system.file_manager import FileManager
 
 
 class Client:
+
     def __init__(self, name, surname, cpf):
         self.name = name
         self.surname = surname

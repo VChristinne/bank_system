@@ -2,6 +2,7 @@ import os
 
 
 class History:
+
     def __init__(self, account_id):
         self.transactions = []
         folder_path = "files_txt"
