@@ -5,7 +5,6 @@ from types_bank_account import *
 
 def initialize_checking_account(client_data, account_data):
     client = Client(*client_data)
-    client.add_clients(client_data)
     account = CheckingAccount(client.name, *account_data)
     history = History(account.number)
     return client, account, history
@@ -41,7 +40,7 @@ def main():
     print(investment_account_1)
     '''
 
-    clients_list = FileManager.load_data("files txt/client_list.txt")
+    clients_list = FileManager.load_data("files_txt/client_list.txt")
     clients_list_str = Client.list_clients(clients_list)
     print(clients_list_str)
 

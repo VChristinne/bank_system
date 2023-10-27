@@ -1,7 +1,13 @@
+import os
+
+
 class History:
     def __init__(self, account_id):
         self.transactions = []
-        self.file_path = f"history_{account_id}.txt"
+        folder_path = "files_txt"
+        if not os.path.exists(folder_path):
+            os.makedirs(folder_path)
+        self.file_path = os.path.join(folder_path, f"history_{account_id}.txt")
         self.load_transactions()
 
     def load_transactions(self):
