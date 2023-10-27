@@ -21,7 +21,7 @@ def main():
     client_1, checking_account_1, history_1 = initialize_client_and_account(client_1_data, account_1_data)
     client_2, checking_account_2, history_2 = initialize_client_and_account(client_2_data, account_2_data)
 
-    # deposit_value = 10
+    deposit_value = 10
     # withdraw_value = 10
     # transfer_value = 500
 
@@ -46,8 +46,8 @@ def main():
         print(e)
     '''
 
+    checking_account_1.update()
     print(checking_account_1)
-    print(checking_account_2)
 
 
 if __name__ == '__main__':
