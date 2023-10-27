@@ -11,20 +11,21 @@ class Account(abc.ABC):
         self._number = number
         self._holder = holder
         self._destination = destination
-        self._history = History()
+        self._history = History(self._number)
 
     def __str__(self):
         return (Fore.GREEN + f"\nAccount Info:"
                              f"\nNumber -> {self._number}"
                              f"\nHolder -> {self._holder}"
                              f"\nBalance -> {self._balance}"
-                             f"\nLimit -> {self._limit}\n")
+                             f"\nLimit -> {self._limit}")
 
     def deposit(self, value):
         if value > 0:
             new_balance = self._balance + value
             if new_balance <= self._limit:
                 self._balance = new_balance
+                self._history.add_transaction(f"Deposit of ${value}")
             else:
                 raise ValueError(Fore.RED + "Limit Exceeded!" + Fore.RESET)
         else:
@@ -37,6 +38,7 @@ class Account(abc.ABC):
             raise ValueError(Fore.RED + "Insufficient funds!" + Fore.RESET)
         else:
             self._balance -= value
+            self._history.add_transaction(f"Withdraw of ${value}")
             return True
 
     def transfer_to(self, destination, value):
@@ -46,9 +48,13 @@ class Account(abc.ABC):
 
         if isinstance(destination, Account):
             destination._balance += value
+            self._history.add_transaction(f"Transfer of ${value}")
             return True
         else:
             raise ValueError(Fore.RED + "Invalid destination account!" + Fore.RESET)
+
+    def get_history(self):
+        return self._history
 
     @property
     def balance(self):
@@ -57,3 +63,7 @@ class Account(abc.ABC):
     @abc.abstractmethod
     def update(self, tax):
         self._balance += self._balance * tax
+
+    @property
+    def number(self):
+        return self._number
