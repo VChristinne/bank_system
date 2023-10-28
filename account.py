@@ -1,4 +1,6 @@
 import abc  # abstract base classes
+import time
+
 from colorama import Fore
 from bank_system.file_manager import FileManager
 from bank_system.history import History
@@ -99,4 +101,5 @@ class Account:
                     limit=float(account_info[3]),
                     password=str
                 )
+        print(Fore.RED + "Password Invalid!" + Fore.RESET)
         return None
