@@ -24,7 +24,11 @@ def initialize_investment_account(client_data, account_data):
     return client, account, history
 
 
-def menu():
+def main():
+    # types accounts: checking | saving | investment
+    # deposit | withdraw | transfer | history | list clients | list accounts
+    account_1 = CheckingAccount.load_account("12345")
+
     print("Type Banck Account:"
           "\n1. Deposit"
           "\n2. Withdraw"
@@ -34,21 +38,15 @@ def menu():
 
     match user_input:
         case '1':
-            pass
+            account_1.deposit()
         case '2':
-            pass
+            account_1.withdraw()
         case '3':
-            pass
+            account_1.transfer_to()
+        case '4':
+            account_1.get_history()
         case _:
             raise ValueError(f"Invalid Option: {user_input}")
-
-
-def main():
-    # types accounts: checking | saving | investment
-    # deposit | withdraw | transfer | history | list clients | list accounts
-    account_1 = CheckingAccount.load_account("12345")
-    account_1.deposit(10)
-    print(account_1)
 
 
 if __name__ == '__main__':
