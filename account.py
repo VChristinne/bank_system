@@ -6,20 +6,20 @@ from bank_system.history import History
 
 class Account:
 
-    def __init__(self, holder, number, balance, limit, password, destination=None):
+    def __init__(self, holder, id, balance, limit, password, destination=None):
         self._destination = destination
         self._password = password
         self._limit = limit
         self._balance = balance
-        self._number = number
+        self._id = id
         self._holder = holder
-        self._history = History(self._number)
+        self._history = History(self._id)
         self.file_path = "files_txt/accounts_list.txt"
         self.accounts = FileManager.load_data(self.file_path)
 
     def __str__(self):
         return (Fore.GREEN + f"\nAccount Info:"
-                             f"\nNumber -> {self._number}"
+                             f"\nID -> {self._id}"
                              f"\nHolder -> {self._holder}"
                              f"\nBalance -> {self._balance}"
                              f"\nLimit -> {self._limit}")
@@ -70,7 +70,7 @@ class Account:
 
     @property
     def number(self):
-        return self._number
+        return self._id
 
     def add_client(self):
         new_account = [self.number, self._holder, self.balance, self._limit]
@@ -92,12 +92,7 @@ class Account:
         accounts = FileManager.load_data(file_path)
         for account_info in accounts:
             if account_info[4] == password:
-                return Account(
-                    number=str(account_info[0]),
-                    holder=str(account_info[1]),
-                    balance=float(account_info[2]),
-                    limit=float(account_info[3]),
-                    password=str
-                )
+                return Account(holder=str(account_info[1]), id=str(account_info[0]), balance=float(account_info[2]),
+                               limit=float(account_info[3]), password=str)
         print(Fore.RED + "Password Invalid!" + Fore.RESET)
         return None

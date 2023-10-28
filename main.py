@@ -5,7 +5,7 @@ from types_bank_account import *
 
 def initialize_checking_account(client_data, account_data):
     client = Client(*client_data)
-    account = CheckingAccount(client.name, *account_data)
+    account = CheckingAccount(client.name,,
     history = History(account.number)
     return client, account, history
 
