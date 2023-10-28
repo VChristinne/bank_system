@@ -69,7 +69,7 @@ def main():
 
     # types accounts: checking | saving | investment
     # deposit | withdraw | transfer | history | list clients | list accounts
-    account_1 = Account.load_account("12345")
+    account_1 = CheckingAccount.load_account("12345")
     account_1.deposit(150)
     print(account_1)
 
