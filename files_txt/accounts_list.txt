@@ -1,5 +1,5 @@
 [
-    {"id": "123-1", "holder": "Nicole", "value1": 2500, "value2": 5000, "code": 12345},
-    {"id": "123-2", "holder": "Ricardo", "value1": 500, "value2": 2000, "code": 54321},
-    {"id": "123-3", "holder": "Gumball", "value1": 20, "value2": 500, "code": 98765}
+    {"id": "123-1", "holder": "Nicole", "balance": 2500, "limit": 5000, "password": 12345},
+    {"id": "123-2", "holder": "Ricardo", "balance": 500, "limit": 2000, "password": 54321},
+    {"id": "123-3", "holder": "Gumball", "balance": 20, "limit": 500, "password": 98765}
 ]
