@@ -6,8 +6,8 @@ import fcntl
 class FileManager:
     @staticmethod
     def load_data(file_path):
+        file = open(file_path, "r")
         try:
-            file = open(file_path, "r")
             fcntl.lockf(file, fcntl.LOCK_SH)  # add read lock
             return [line.strip().split("|") for line in file]
         except FileNotFoundError:
@@ -18,8 +18,8 @@ class FileManager:
 
     @staticmethod
     def save_data(file_path, data):
+        file = open(file_path, "w")
         try:
-            file = open(file_path, "w")
             fcntl.lockf(file, fcntl.LOCK_EX)  # add write lock
             for item in data:
                 file.write("|".join(item) + "\n")
