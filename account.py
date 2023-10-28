@@ -95,8 +95,8 @@ class Account:
         for account_info in accounts:
             if account_info[4] == password:
                 return Account(
-                    number=account_info[0],
-                    holder=account_info[1],
+                    number=str(account_info[0]),
+                    holder=str(account_info[1]),
                     balance=float(account_info[2]),
                     limit=float(account_info[3]),
                     password=str
