@@ -25,8 +25,26 @@ def initialize_investment_account(client_data, account_data):
     return client, account, history
 
 
+def menu():
+    print("Type Banck Account:")
+    print("1. Checking")
+    print("2. Saving")
+    print("3. Investment")
+    user_input = input("Opção: ")
+
+    match user_input:
+        case '1':
+            return 'checking'
+        case '2':
+            return 'saving'
+        case '3':
+            return 'investment'
+        case _:
+            raise ValueError(f"Invalid Option: {user_input}")
+
+
 def main():
-    '''
+    """
     client_1, checking_account_1, history_1 = initialize_checking_account(client_1_data, account_1_data)
     client_2, saving_account_1, history_2 = initialize_saving_account(client_2_data, account_2_data)
     client_3, investment_account_1, history_3 = initialize_investment_account(client_3_data, account_3_data)
@@ -47,9 +65,14 @@ def main():
     accounts_list = FileManager.load_data("files_txt/accounts_list.txt")
     accounts_list_str = Account.list_accounts(accounts_list)
     print(accounts_list_str)
-    '''
+    """
 
-    
+    # types accounts: checking | saving | investment
+    # deposit | withdraw | transfer | history | list clients | list accounts
+    account_1 = Account.load_account("123-1")
+    account_1.deposit(150)
+    print(account_1)
+
 
 if __name__ == '__main__':
     main()
