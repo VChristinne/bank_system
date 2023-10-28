@@ -6,12 +6,13 @@ from bank_system.history import History
 
 class Account:
 
-    def __init__(self, holder, number, balance, limit, destination=None):
+    def __init__(self, holder, number, balance, limit, password, destination=None):
+        self._destination = destination
+        self._password = password
         self._limit = limit
         self._balance = balance
         self._number = number
         self._holder = holder
-        self._destination = destination
         self._history = History(self._number)
         self.file_path = "files_txt/accounts_list.txt"
         self.accounts = FileManager.load_data(self.file_path)
@@ -86,15 +87,16 @@ class Account:
         return result
 
     @staticmethod
-    def load_account(number):
+    def load_account(password):
         file_path = "files_txt/accounts_list.txt"
         accounts = FileManager.load_data(file_path)
         for account_info in accounts:
-            if account_info[0] == number:
+            if account_info[4] == password:
                 return Account(
                     number=account_info[0],
                     holder=account_info[1],
                     balance=float(account_info[2]),
-                    limit=float(account_info[3])
+                    limit=float(account_info[3]),
+                    password=str
                 )
         return None
