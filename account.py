@@ -6,15 +6,15 @@ from bank_system.history import History
 
 class Account:
 
-    def __init__(self, holder, id, balance, limit, password, destination=None):
+    def __init__(self, holder, id_, balance, limit, password, destination=None):
         self._destination = destination
         self._password = password
         self._limit = limit
         self._balance = balance
-        self._id = id
+        self._id = id_
         self._holder = holder
         self._history = History(self._id)
-        self.file_path = "files_txt/accounts_list.json"
+        self.file_path = "files_json/accounts_list.json"
         self.accounts = FileManager.load_data(self.file_path)
 
     def __str__(self):
@@ -73,7 +73,12 @@ class Account:
         return self._id
 
     def add_client(self):
-        new_account = [self.number, self._holder, self.balance, self._limit]
+        new_account = {
+            "id_": self._id,
+            "holder": self._holder,
+            "balance": self._balance,
+            "limit": self._limit
+        }
         self.accounts.append(new_account)
         FileManager.save_data(self.file_path, self.accounts)
 
@@ -88,11 +93,16 @@ class Account:
 
     @staticmethod
     def load_account(password):
-        file_path = "files_txt/accounts_list.json"
+        file_path = "files_json/accounts_list.json"
         accounts = FileManager.load_data(file_path)
         for account_info in accounts:
-            if account_info[4] == password:
-                return Account(holder=str(account_info[1]), id=str(account_info[0]), balance=float(account_info[2]),
-                               limit=float(account_info[3]), password=str)
+            if account_info.get("password") == password:
+                return Account(
+                    holder=str(account_info.get("holder")),
+                    id_=str(account_info.get("id")),
+                    balance=float(account_info.get("balance")),
+                    limit=float(account_info.get("limit")),
+                    password=password
+                )
         print(Fore.RED + "Password Invalid!" + Fore.RESET)
         return None

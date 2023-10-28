@@ -57,11 +57,11 @@ def main():
     investment_account_1.update()
     print(investment_account_1)
 
-    clients_list = FileManager.load_data("files_txt/client_list.json")
+    clients_list = FileManager.load_data("files_json/client_list.json")
     clients_list_str = Client.list_clients(clients_list)
     print(clients_list_str)
 
-    accounts_list = FileManager.load_data("files_txt/accounts_list.json")
+    accounts_list = FileManager.load_data("files_json/accounts_list.json")
     accounts_list_str = Account.list_accounts(accounts_list)
     print(accounts_list_str)
     """

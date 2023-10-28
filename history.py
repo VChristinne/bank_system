@@ -5,7 +5,7 @@ class History:
 
     def __init__(self, account_id):
         self.transactions = []
-        folder_path = "files_txt"
+        folder_path = "files_json"
         if not os.path.exists(folder_path):
             os.makedirs(folder_path)
         self.file_path = os.path.join(folder_path, f"history_{account_id}.txt")
