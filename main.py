@@ -43,29 +43,6 @@ def menu():
 
 
 def main():
-    """
-    client_1, checking_account_1, history_1 = initialize_checking_account(client_1_data, account_1_data)
-    client_2, saving_account_1, history_2 = initialize_saving_account(client_2_data, account_2_data)
-    client_3, investment_account_1, history_3 = initialize_investment_account(client_3_data, account_3_data)
-
-    checking_account_1.update()
-    print(checking_account_1)
-
-    saving_account_1.update()
-    print(saving_account_1)
-
-    investment_account_1.update()
-    print(investment_account_1)
-
-    clients_list = FileManager.load_data("files_json/client_list.json")
-    clients_list_str = Client.list_clients(clients_list)
-    print(clients_list_str)
-
-    accounts_list = FileManager.load_data("files_json/accounts_list.json")
-    accounts_list_str = Account.list_accounts(accounts_list)
-    print(accounts_list_str)
-    """
-
     # types accounts: checking | saving | investment
     # deposit | withdraw | transfer | history | list clients | list accounts
     account_1 = CheckingAccount.load_account("12345")
