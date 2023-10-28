@@ -1,2 +1,5 @@
-123-1|Nicole|2500|5000|12345
-123-2|Ricardo|500|2000|54321
+[
+    {"id": "123-1", "holder": "Nicole", "value1": 2500, "value2": 5000, "code": 12345},
+    {"id": "123-2", "holder": "Ricardo", "value1": 500, "value2": 2000, "code": 54321},
+    {"id": "123-3", "holder": "Gumball", "value1": 20, "value2": 500, "code": 98765}
+]
