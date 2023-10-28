@@ -14,7 +14,7 @@ class Account:
         self._id = id
         self._holder = holder
         self._history = History(self._id)
-        self.file_path = "files_txt/accounts_list.txt"
+        self.file_path = "files_txt/accounts_list.json"
         self.accounts = FileManager.load_data(self.file_path)
 
     def __str__(self):
@@ -88,7 +88,7 @@ class Account:
 
     @staticmethod
     def load_account(password):
-        file_path = "files_txt/accounts_list.txt"
+        file_path = "files_txt/accounts_list.json"
         accounts = FileManager.load_data(file_path)
         for account_info in accounts:
             if account_info[4] == password:
