@@ -1,5 +1,7 @@
-Nicole|Watterson|11111111111-1
-Ricardo|Watterson|22222222222-2
-Gumball|Watterson|33333333333-3
-Darwin|Watterson|44444444444-4
-Anais|Watterson|55555555555-5
+[
+    {"name": "Nicole", "surname": "Watterson", "cpf": "11111111111-1"},
+    {"name": "Ricardo", "surname": "Watterson", "cpf": "22222222222-2"},
+    {"name": "Gumball", "surname": "Watterson", "cpf": "33333333333-3"},
+    {"name": "Darwin", "surname": "Watterson", "cpf": "44444444444-4"},
+    {"name": "Anais", "surname": "Watterson", "cpf": "55555555555-5"}
+]
