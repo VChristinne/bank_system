@@ -39,7 +39,6 @@ def main():
 
     investment_account_1.update()
     print(investment_account_1)
-    '''
 
     clients_list = FileManager.load_data("files_txt/client_list.txt")
     clients_list_str = Client.list_clients(clients_list)
@@ -48,7 +47,9 @@ def main():
     accounts_list = FileManager.load_data("files_txt/accounts_list.txt")
     accounts_list_str = Account.list_accounts(accounts_list)
     print(accounts_list_str)
+    '''
 
+    
 
 if __name__ == '__main__':
     main()
