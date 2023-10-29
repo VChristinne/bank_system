@@ -1,6 +1,7 @@
 import os
 import json
 
+
 class History:
 
     def __init__(self, account_id):
