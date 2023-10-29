@@ -13,7 +13,7 @@ class Insurance(abc.ABC):
         return (Fore.GREEN + f"Account Info:"
                              f"\nPolicy ID -> {self._policy_id}"
                              f"\nHolder -> {self._holder}"
-                             f"\nPrice -> {self._price}")
+                             f"\nPrice -> {self._price}" + Fore.RESET)
 
     @property
     def price(self):

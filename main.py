@@ -1,3 +1,5 @@
+from colorama import Fore
+
 from bank_system.client import Client
 from bank_system.history import History
 from types_bank_account import *
@@ -55,7 +57,7 @@ def main():
                 case '5':
                     print(account_1)
                 case _:
-                    raise ValueError(f"\nInvalid Option: {user_input}\n")
+                    raise ValueError(Fore.RED + "Invalid Option\n" + Fore.RESET)
         except ValueError as e:
             print(e)
 
