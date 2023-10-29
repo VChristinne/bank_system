@@ -6,6 +6,13 @@ def main():
                        themename="superhero",
                        size=[800, 500],
                        position=[450, 180])
+
+    label = ttkb.Label(text="Christinne S.A.",
+                       font=("SF Pro", 30),
+                       style="default")
+
+    label.pack(pady=50)
+
     root.mainloop()
 
 
