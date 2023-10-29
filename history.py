@@ -35,26 +35,9 @@ class History:
 
     def __str__(self):
         self.load_transactions()
-        result = "\nTransactions:\n"
-
-        withdraw_count = 0
-        deposit_count = 0
-        transfer_count = 0
+        result = "\nTransactions:"
 
         for t in self.transactions:
-            result += f"- {t}"
-
-            if "Withdraw" in t:
-                withdraw_count += 1
-
-            if "Deposit" in t:
-                deposit_count += 1
-
-            if "Transfer" in t:
-                transfer_count += 1
-
-        result += (f"\nTotal Withdraws: {withdraw_count}"
-                   f"\nTotal Deposits: {deposit_count}"
-                   f"\nTotal Transfer: {transfer_count}")
+            result += f"\n- {t}"
 
         return result
