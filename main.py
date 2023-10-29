@@ -1,10 +1,6 @@
 from colorama import Fore
 from types_bank_account import *
-import tkinter as tk
-import ttkbootstrap as ttk
-from ttkbootstrap.constants import *
 
-root = tk.Tk()
 
 def main():
     # types accounts: checking | saving | investment
