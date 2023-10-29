@@ -1,5 +1,5 @@
 import os
-
+import json
 
 class History:
 
@@ -14,19 +14,19 @@ class History:
     def load_transactions(self):
         try:
             with open(self.file_path, "r") as file:
-                self.transactions = file.readlines()
+                data = file.read()
+                if data:
+                    self.transactions = json.loads(data)
         except FileNotFoundError:
             pass
 
     def save_transactions(self):
         with open(self.file_path, "w") as file:
-            for transaction in self.transactions:
-                file.write(transaction + "\n")
+            json.dump(self.transactions, file)
 
     def add_transaction(self, transaction):
         self.transactions.append(transaction)
-        with open(self.file_path, "a") as file:
-            file.write(transaction + "\n")
+        self.save_transactions()
 
     def get_transactions(self):
         self.load_transactions()
