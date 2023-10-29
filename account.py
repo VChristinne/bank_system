@@ -22,7 +22,7 @@ class Account:
                              f"\nID -> {self._id}"
                              f"\nHolder -> {self._holder}"
                              f"\nBalance -> {self._balance}"
-                             f"\nLimit -> {self._limit}")
+                             f"\nLimit -> {self._limit}" + Fore.RESET)
 
     def deposit(self, value):
         if value > 0:
