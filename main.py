@@ -32,7 +32,7 @@ def main():
     account_1 = CheckingAccount.load_account("12345")
 
     while True:
-        print("\nType Banck Account:"
+        print("\nActions:"
               "\n1. Deposit"
               "\n2. Withdraw"
               "\n3. Transfer"
