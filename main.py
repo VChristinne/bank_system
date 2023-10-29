@@ -17,7 +17,8 @@ label_frame = ttkb.LabelFrame(root,
                               style="info",
                               width=600,
                               height=200,
-                              relief="solid")
+                              relief="solid",
+                              padding=50)
 
 menu = ttkb.Label(label_frame,
                   text="\nActions:"
@@ -25,7 +26,8 @@ menu = ttkb.Label(label_frame,
                        "\n2. Withdraw"
                        "\n3. Transfer"
                        "\n4. History"
-                       "\n5. Account Info")
+                       "\n5. Account Info",
+                  font=("SF Pro", 20))
 
 label.pack()
 label_frame.pack()
