@@ -1,5 +1,7 @@
 import ttkbootstrap as ttkb
 from types_bank_account import *
+from tkinter import simpledialog
+
 
 account_1 = CheckingAccount.load_account("12345")
 
@@ -8,14 +10,14 @@ def handle_button_click():
     selected_option = option_menu.get()
 
     if selected_option == '1':
-        amount = input("Amount to be deposited: ")
+        amount = simpledialog.askfloat("Deposit", "Amount to be deposited:")
         account_1.deposit(amount)
     elif selected_option == '2':
-        amount = input("Amount to be withdrawn: ")
+        amount = simpledialog.askfloat("Withdraw", "Amount to be withdrawn:")
         account_1.withdraw(amount)
     elif selected_option == '3':
-        destination = input("Account to transfer: ")
-        amount = input("Amount to transfer: ")
+        destination = simpledialog.askstring("Transfer", "Account to transfer:")
+        amount = simpledialog.askfloat("Transfer", "Amount to transfer:")
         account_1.transfer_to(destination, amount)
     elif selected_option == '4':
         account_1.get_history()
@@ -58,6 +60,7 @@ button = ttkb.Button(root,
                      text="Selecionar Opção",
                      style="success",
                      command=handle_button_click)
+
 
 label.pack()
 label_frame.pack()
