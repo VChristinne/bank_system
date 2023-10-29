@@ -1,27 +1,33 @@
 import ttkbootstrap as ttkb
 
+# account_1 = CheckingAccount.load_account("12345")
 
-def main():
-    root = ttkb.Window(title="Christinne S.A.",
-                       themename="superhero",
-                       size=[800, 500],
-                       position=[450, 180])
+root = ttkb.Window(title="Christinne S.A.",
+                   themename="vapor",
+                   size=[800, 500],
+                   position=[450, 180])
 
-    label = ttkb.Label(text="Christinne S.A.",
-                       font=("SF Pro", 30),
-                       style="default",
-                       padding=50)
+label = ttkb.Label(text="Christinne S.A.",
+                   font=("SF Pro", 30),
+                   style="default",
+                   padding=50)
 
-    label_frame = ttkb.LabelFrame(root,
-                                  text="Menu",
-                                  style="info",
-                                  width=600,
-                                  height=200)
+label_frame = ttkb.LabelFrame(root,
+                              text="MENU",
+                              style="info",
+                              width=600,
+                              height=200,
+                              relief="solid")
 
-    label.pack()
-    label_frame.pack()
-    root.mainloop()
+menu = ttkb.Label(label_frame,
+                  text="\nActions:"
+                       "\n1. Deposit"
+                       "\n2. Withdraw"
+                       "\n3. Transfer"
+                       "\n4. History"
+                       "\n5. Account Info")
 
-
-if __name__ == '__main__':
-    main()
+label.pack()
+label_frame.pack()
+menu.pack()
+root.mainloop()
