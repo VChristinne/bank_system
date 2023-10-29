@@ -1,29 +1,10 @@
 from colorama import Fore
-from bank_system.client import Client
-from bank_system.history import History
 from types_bank_account import *
+import tkinter as tk
+import ttkbootstrap as ttk
+from ttkbootstrap.constants import *
 
-
-def initialize_checking_account(client_data, account_data):
-    client = Client(*client_data)
-    account = CheckingAccount(client.name, *account_data)
-    history = History(account.number)
-    return client, account, history
-
-
-def initialize_saving_account(client_data, account_data):
-    client = Client(*client_data)
-    account = SavingAccount(client.name, *account_data)
-    history = History(account.number)
-    return client, account, history
-
-
-def initialize_investment_account(client_data, account_data):
-    client = Client(*client_data)
-    account = InvestmentAccount(client.name, *account_data)
-    history = History(account.number)
-    return client, account, history
-
+root = tk.Tk()
 
 def main():
     # types accounts: checking | saving | investment
