@@ -33,7 +33,8 @@ def main():
           "\n1. Deposit"
           "\n2. Withdraw"
           "\n3. Transfer"
-          "\n4. History")
+          "\n4. History"
+          "\n5. Account Info")
     user_input = input("Option: ")
 
     match user_input:
@@ -48,7 +49,9 @@ def main():
             amount = int(input("Amount to transfer: "))
             account_1.transfer_to(destination, amount)
         case '4':
-            account_1.get_history()
+            print(account_1.get_history())
+        case '5':
+            print(account_1)
         case _:
             raise ValueError(f"Invalid Option: {user_input}")
 
