@@ -57,7 +57,7 @@ def main():
                 case '5':
                     print(account_1)
                 case _:
-                    raise ValueError(Fore.RED + "Invalid Option\n" + Fore.RESET)
+                    raise ValueError(Fore.RED + "\nInvalid Option" + Fore.RESET)
         except ValueError as e:
             print(e)
 
