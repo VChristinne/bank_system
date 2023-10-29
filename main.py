@@ -57,14 +57,13 @@ option_menu = ttkb.Entry(root,
                          style="sucess")
 
 button = ttkb.Button(root,
-                     text="Selecionar Opção",
-                     style="success",
+                     text="Submit",
                      command=handle_button_click)
 
 
 label.pack()
 label_frame.pack()
-menu.pack()
-option_menu.pack()
+menu.pack(pady=20)
+option_menu.pack(pady=20)
 button.pack()
 root.mainloop()
