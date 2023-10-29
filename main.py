@@ -9,10 +9,17 @@ def main():
 
     label = ttkb.Label(text="Christinne S.A.",
                        font=("SF Pro", 30),
-                       style="default")
+                       style="default",
+                       padding=50)
 
-    label.pack(pady=50)
+    label_frame = ttkb.LabelFrame(root,
+                                  text="Menu",
+                                  style="info",
+                                  width=600,
+                                  height=200)
 
+    label.pack()
+    label_frame.pack()
     root.mainloop()
 
 
