@@ -43,21 +43,21 @@ def main():
         try:
             match user_input:
                 case '1':
-                    amount = int(input("Amount to be deposited: "))
+                    amount = float(input("Amount to be deposited: "))
                     account_1.deposit(amount)
                 case '2':
-                    amount = int(input("Amount to be withdrawn: "))
+                    amount = float(input("Amount to be withdrawn: "))
                     account_1.withdraw(amount)
                 case '3':
                     destination = str(input("Account to transfer: "))
-                    amount = int(input("Amount to transfer: "))
+                    amount = float(input("Amount to transfer: "))
                     account_1.transfer_to(destination, amount)
                 case '4':
                     print(account_1.get_history())
                 case '5':
                     print(account_1)
                 case _:
-                    raise ValueError(Fore.RED + "\nInvalid Option" + Fore.RESET)
+                    print(Fore.RED + "\nInvalid Option" + Fore.RESET)
         except ValueError as e:
             print(e)
 
