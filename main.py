@@ -38,11 +38,15 @@ def main():
 
     match user_input:
         case '1':
-            account_1.deposit()
+            amount = int(input("Amount to be deposited: "))
+            account_1.deposit(amount)
         case '2':
-            account_1.withdraw()
+            amount = int(input("Amount to be withdrawn: "))
+            account_1.withdraw(amount)
         case '3':
-            account_1.transfer_to()
+            destination = str(input("Account to transfer: "))
+            amount = int(input("Amount to transfer: "))
+            account_1.transfer_to(destination, amount)
         case '4':
             account_1.get_history()
         case _:
