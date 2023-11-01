@@ -13,6 +13,7 @@
 ![commits](https://badgen.net/github/commits/VChristinne/bank_system/main?color=orange)
 [![License](https://badgen.net/badge/license/LGPL-3.0-only?color=black)](https://opensource.org/license/lgpl-3-0/)
 
+
 ## Features
 | Account Operations  | Description                                        |
 |---------------------|----------------------------------------------------|
@@ -34,6 +35,9 @@ pip3 install ttkbootstrap
 ## Video Demo
 
 ## Images
+- First GUI idea
+<img src="https://github.com/VChristinne/bank_system/assets/141720673/b49568a7-c246-4915-a9d1-ce0996b1a27c" width=400 height=auto>
+
 
 ## Skills learned
 * Implementing complex OOP in Python.
