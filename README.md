@@ -1,15 +1,23 @@
-# bank system
+# Bank System
  Implementing basic functions of a banking system in python. GUI using ttkbootstrap.
 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+![Static Badge](https://img.shields.io/badge/final%20project%20CS50P-8A2BE2)
+![Static Badge](https://badgen.net/badge/python/v3.9+?color=cyan)
+![Static Badge](https://badgen.net/badge/GUI/ttkbootstrap?color=grey)
+![Static Badge](https://badgen.net/badge/IDE/pycharm?color=green)
+![commits](https://badgen.net/github/commits/VChristinne/bank_system/main?color=orange)
+[![License](https://badgen.net/badge/license/GPLv3?color=black)](https://opensource.org/licenses/GPLv3)
 
-### home screen
- <img width="500" alt="Screenshot 2023-10-29 at 11 16 31 PM" src="https://github.com/VChristinne/bank_system/assets/141720673/a8fa3c9d-ae7b-4bed-8c48-2aa6b3e422bc">
 
-### deposit option
-<img width="500" alt="Screenshot 2023-10-29 at 11 16 47 PM" src="https://github.com/VChristinne/bank_system/assets/141720673/6bc5e81d-f153-4619-92ae-27fd508e5a38">
+## Features
 
-### withdraw option
-<img width="500" alt="Screenshot 2023-10-29 at 11 17 01 PM" src="https://github.com/VChristinne/bank_system/assets/141720673/533e490d-2340-4760-962d-afe8f93dd2a9">
+## Description
 
-### transfer option
-<img width="500" alt="Screenshot 2023-10-29 at 11 17 27 PM" src="https://github.com/VChristinne/bank_system/assets/141720673/8527bb3d-2c5b-44c9-8ac6-c9b45140d91a">
+## How To Use
+
+## Video Demo
+
+## Images
+
+## Skills learned
