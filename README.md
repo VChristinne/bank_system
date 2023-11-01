@@ -7,7 +7,7 @@
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Static Badge](https://img.shields.io/badge/final%20project%20CS50P-8A2BE2)
-![Static Badge](https://badgen.net/badge/python/v3.9+?color=cyan)
+![Static Badge](https://badgen.net/badge/python/v3.11+?color=cyan)
 ![Static Badge](https://badgen.net/badge/GUI/ttkbootstrap?color=blue)
 ![Static Badge](https://badgen.net/badge/IDE/pycharm?color=green)
 ![commits](https://badgen.net/github/commits/VChristinne/bank_system/main?color=orange)
@@ -24,7 +24,7 @@
 
 ## How To Use
 1. Clone the repository to your local machine.
-2. Ensure you have Python installed on your system.
+2. Ensure you have Python v11.0+ installed on your system.
 3. Install the required dependencies using the following command:
 ```bash
 pip3 install ttkbootstrap
