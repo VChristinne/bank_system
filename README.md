@@ -12,7 +12,6 @@
 ![Static Badge](https://badgen.net/badge/IDE/pycharm?color=green)
 ![commits](https://badgen.net/github/commits/VChristinne/bank_system/main?color=orange)
 [![License](https://badgen.net/badge/license/LGPL-3.0-only?color=black)](https://opensource.org/license/lgpl-3-0/)
----
 
 ## Features
 | Account Operations  | Description                                        |
