@@ -1,7 +1,7 @@
 import abc  # abstract base classes
 from colorama import Fore
-from bank_system.file_manager import FileManager
-from bank_system.history import History
+from file_manager import FileManager
+from history import History
 
 
 class Account:
