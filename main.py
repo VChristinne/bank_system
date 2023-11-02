@@ -6,7 +6,7 @@ from file_manager import FileManager
 from types_bank_account import *
 
 ctk.set_appearance_mode("Dark")
-ctk.set_default_color_theme("theme/indigo.json")
+ctk.set_default_color_theme("indigo.json")
 
 app = ctk.CTk()
 app.geometry("800x600")
