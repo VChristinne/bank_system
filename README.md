@@ -40,7 +40,7 @@ pip3 install pillow
 
 ## Images
 - Login Screen
-<img width=600 alt="image of login screen" src="https://github.com/VChristinne/bank_system/assets/141720673/a2159948-5cfd-4f68-b372-850a9a2ec71e">
+<img width=900 alt="image of login screen" src="https://github.com/VChristinne/bank_system/assets/141720673/a2159948-5cfd-4f68-b372-850a9a2ec71e">
 
 ## Skills learned
 * Implementing complex OOP in Python.
