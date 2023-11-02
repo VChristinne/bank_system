@@ -39,11 +39,8 @@ pip3 install pillow
 ## Video Demo
 
 ## Images
-- First GUI idea
-<img width=500 alt="template01" src="https://github.com/VChristinne/bank_system/assets/141720673/47fa369c-6301-425d-8136-64a4e230e54c">
-
-- Second GUI idea
-<img width=500 alt="template02" src="https://github.com/VChristinne/bank_system/assets/141720673/4a37aa68-8d41-4b64-b338-ca061da94ef7">
+- Login Screen
+<img width=600 alt="image of login screen" src="https://github.com/VChristinne/bank_system/assets/141720673/a2159948-5cfd-4f68-b372-850a9a2ec71e">
 
 ## Skills learned
 * Implementing complex OOP in Python.
