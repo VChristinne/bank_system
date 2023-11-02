@@ -1,69 +1,55 @@
-import ttkbootstrap as ttkb
+import tkinter
+from PIL import ImageTk, Image
+import customtkinter as ctk
 from types_bank_account import *
-from tkinter import simpledialog
+
+ctk.set_appearance_mode("System")
+ctk.set_default_color_theme("dark-blue")
+
+app = ctk.CTk()
+app.geometry("800x600")
+app.title("Login")
+app.state("zoomed")
+
+# account_1 = CheckingAccount.load_account("12345")
 
 
-account_1 = CheckingAccount.load_account("12345")
+def button_function():
+    app.destroy()
+    window = ctk.CTk()
+    window.geometry("1280x720")
+    window.title("Welcome")
+    label1 = ctk.CTkLabel(master=window, text="Home Page", font=('SF Pro', 60))
+    label1.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+    window.mainloop()
 
 
-def handle_button_click():
-    selected_option = option_menu.get()
+bg = ImageTk.PhotoImage(Image.open("images/pattern.png"))
+l1 = ctk.CTkLabel(master=app, image=bg)
+l1.pack()
 
-    if selected_option == '1':
-        amount = simpledialog.askfloat("Deposit", "Amount to be deposited:")
-        account_1.deposit(amount)
-    elif selected_option == '2':
-        amount = simpledialog.askfloat("Withdraw", "Amount to be withdrawn:")
-        account_1.withdraw(amount)
-    elif selected_option == '3':
-        destination = simpledialog.askstring("Transfer", "Account to transfer:")
-        amount = simpledialog.askfloat("Transfer", "Amount to transfer:")
-        account_1.transfer_to(destination, amount)
-    elif selected_option == '4':
-        account_1.get_history()
-    elif selected_option == '5':
-        print(account_1)
-    else:
-        print("Invalid Option")
+# creating custom frame
+frame = ctk.CTkFrame(master=l1, width=320, height=360, corner_radius=15)
+frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
+# log in text
+l2 = ctk.CTkLabel(master=frame, text="Log into your Account", font=('SF Pro', 20))
+l2.place(x=50, y=45)
 
-root = ttkb.Window(title="Christinne S.A.",
-                   themename="vapor",
-                   size=[800, 500],
-                   position=[450, 180])
+# usarname
+entry_username = ctk.CTkEntry(master=frame, width=220, placeholder_text='Username')
+entry_username.place(x=50, y=110)
 
-label = ttkb.Label(text="Christinne S.A.",
-                   font=("SF Pro", 30),
-                   style="default",
-                   padding=50)
+# password
+entry_password = ctk.CTkEntry(master=frame, width=220, placeholder_text='Password', show="*")
+entry_password.place(x=50, y=165)
 
-label_frame = ttkb.LabelFrame(root,
-                              text="MENU",
-                              style="info",
-                              width=600,
-                              height=200,
-                              relief="solid",
-                              padding=20)
+# forget password
+l3 = ctk.CTkLabel(master=frame, text="Forget password?", font=('SF Pro', 12))
+l3.place(x=155, y=195)
 
-menu = ttkb.Label(label_frame,
-                  text="1. deposit"
-                       "\n2. withdraw"
-                       "\n3. transfer"
-                       "\n4. history"
-                       "\n5. account info",
-                  font=("SF Pro", 18))
+# button login
+btn_login = ctk.CTkButton(master=frame, width=220, text="Login", command=button_function, corner_radius=6)
+btn_login.place(x=50, y=240)
 
-option_menu = ttkb.Entry(root,
-                         style="sucess")
-
-button = ttkb.Button(root,
-                     text="Submit",
-                     command=handle_button_click)
-
-
-label.pack()
-label_frame.pack()
-menu.pack(pady=20)
-option_menu.pack(pady=20)
-button.pack()
-root.mainloop()
+app.mainloop()
