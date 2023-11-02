@@ -60,13 +60,13 @@ def menu_frame():
     login_text = ctk.CTkLabel(master=custom_frame, text="Log in to your account", font=('SF Pro', 20))
     login_text.place(x=60, y=45)
 
-    entry_username = ctk.CTkEntry(master=custom_frame, width=220, placeholder_text='Username')
+    entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Username')
     entry_username.place(x=50, y=110)
 
-    entry_password = ctk.CTkEntry(master=custom_frame, width=220, placeholder_text='Password', show="*")
+    entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
     entry_password.place(x=50, y=165)
 
-    btn_login = ctk.CTkButton(master=custom_frame, width=220, text="Login",
+    btn_login = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Login",
                               command=lambda: button_function(entry_username.get(), entry_password.get()),
                               corner_radius=6)
     btn_login.place(x=50, y=240)
