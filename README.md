@@ -15,13 +15,13 @@
 
 
 ## Features
-| Account Operations  | Description                                        |
-|---------------------|----------------------------------------------------|
-| Login               | Clients need username and password to access their accounts |
-| Deposit             | Clients can deposit money into their accounts      |
-| Withdraw            | Clients can withdraw money from their accounts     |
-| Transfer            | Clients can transfer money between others accounts |
-| See History         | Clients can view their transaction history         |
+| Account Operations | Description                                                 |
+|--------------------|-------------------------------------------------------------|
+| Login              | Clients need username and password to access their accounts |
+| Deposit            | Clients can deposit money into their accounts               |
+| Withdraw           | Clients can withdraw money from their accounts              |
+| Transfer           | Clients can transfer money between others accounts          |
+| See History        | Clients can view their transaction history                  |
 
 
 ## How To Use
@@ -29,7 +29,10 @@
 2. Ensure you have Python v11.0+ installed on your system.
 3. Install the required dependencies using the following command:
 ```bash
-pip3 install ttkbootstrap
+pip3 install customtkinter
+```
+```bash
+pip3 install pillow
 ```
 4. Run the main.py file to start the application.
 
