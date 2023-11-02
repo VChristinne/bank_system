@@ -5,8 +5,9 @@ import customtkinter as ctk
 from file_manager import FileManager
 from types_bank_account import *
 
+
 ctk.set_appearance_mode("Dark")
-ctk.set_default_color_theme("indigo.json")
+ctk.set_default_color_theme("theme/indigo.json")
 
 app = ctk.CTk()
 app.geometry("800x600")
@@ -18,7 +19,7 @@ app.wm_attributes('-fullscreen', True)
 
 def load_data():
     try:
-        data = FileManager.load_data('files_json/accounts_list.json')
+        FileManager.load_data('files_json/accounts_list.json')
         messagebox.showinfo("Success", "Data loaded successfully")
     except Exception as e:
         messagebox.showerror("Error", str(e))
