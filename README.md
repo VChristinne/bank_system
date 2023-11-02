@@ -43,3 +43,5 @@ pip3 install ttkbootstrap
 * Implementing complex OOP in Python.
 * Creating a graphical user interface using customtkinter.
 * Working with JSON files for data storage and retrieval.
+* Check login information saved in JSON.
+
