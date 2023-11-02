@@ -39,8 +39,16 @@ def button_function(username, password):
         if client['holder'] == username and client['password'] == password:
             app.destroy()
             window = ctk.CTk()
+
+            # window config
             window.geometry("1280x720")
-            window.title("Welcome")
+            window.wm_attributes('-fullscreen', True)
+            window.resizable(True, True)
+            window.minsize(500, 700)
+            window.maxsize(3840, 2160)
+
+            # diplay on window
+            window.title(f"Welcome")
             label1 = ctk.CTkLabel(master=window, text="Home Page", font=('SF Pro', 60))
             label1.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
             window.mainloop()
