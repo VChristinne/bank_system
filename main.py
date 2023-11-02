@@ -57,8 +57,8 @@ def menu_frame():
     custom_frame = ctk.CTkFrame(master=l1, width=320, height=360)
     custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
-    login_text = ctk.CTkLabel(master=custom_frame, text="Log in to your account", font=('SF Pro', 20))
-    login_text.place(x=60, y=45)
+    login_text = ctk.CTkLabel(master=custom_frame, text="Log in to your account", font=('SF Pro', 22))
+    login_text.place(x=55, y=40)
 
     entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Username')
     entry_username.place(x=50, y=110)
