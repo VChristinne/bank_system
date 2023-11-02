@@ -5,7 +5,6 @@ import customtkinter as ctk
 from file_manager import FileManager
 from types_bank_account import *
 
-
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("theme/indigo.json")
 
@@ -48,11 +47,14 @@ def button_function(username, password):
 
 
 def menu_frame():
-    background = ImageTk.PhotoImage(Image.open("images/sonoma_dark.png"))
-    l1 = ctk.CTkLabel(master=app, image=background)
-    l1.pack()
+    images = ctk.CTkImage(light_image=Image.open("images/sonoma_light.png"),
+                          dark_image=Image.open("images/sonoma_dark.png"),
+                          size=(1920, 1080))
 
-    custom_frame = ctk.CTkFrame(master=l1, width=320, height=360)
+    background = ctk.CTkLabel(master=app, image=images)
+    background.pack()
+
+    custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
     custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
     login_text = ctk.CTkLabel(master=custom_frame, text="Log in to your account", font=('SF Pro', 22))
