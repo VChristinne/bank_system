@@ -24,29 +24,32 @@ def button_function():
     window.mainloop()
 
 
-# background image
-bg = ImageTk.PhotoImage(Image.open("images/sonoma_dark.png"))
-l1 = ctk.CTkLabel(master=app, image=bg)
-l1.pack()
+def menu_frame():
+    # background
+    bg = ImageTk.PhotoImage(Image.open("images/sonoma_dark.png"))
+    l1 = ctk.CTkLabel(master=app, image=bg)
+    l1.pack()
 
-# custom frame
-frame = ctk.CTkFrame(master=l1, width=320, height=360)
-frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+    # custom frame
+    frame = ctk.CTkFrame(master=l1, width=320, height=360)
+    frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
-# log in text
-l2 = ctk.CTkLabel(master=frame, text="Log in to your account", font=('SF Pro', 20))
-l2.place(x=60, y=45)
+    # log in text
+    l2 = ctk.CTkLabel(master=frame, text="Log in to your account", font=('SF Pro', 20))
+    l2.place(x=60, y=45)
 
-# usarname
-entry_username = ctk.CTkEntry(master=frame, width=220, placeholder_text='Username')
-entry_username.place(x=50, y=110)
+    # usarname
+    entry_username = ctk.CTkEntry(master=frame, width=220, placeholder_text='Username')
+    entry_username.place(x=50, y=110)
 
-# password
-entry_password = ctk.CTkEntry(master=frame, width=220, placeholder_text='Password', show="*")
-entry_password.place(x=50, y=165)
+    # password
+    entry_password = ctk.CTkEntry(master=frame, width=220, placeholder_text='Password', show="*")
+    entry_password.place(x=50, y=165)
 
-# button login
-btn_login = ctk.CTkButton(master=frame, width=220, text="Login", command=button_function, corner_radius=6)
-btn_login.place(x=50, y=240)
+    # button login
+    btn_login = ctk.CTkButton(master=frame, width=220, text="Login", command=button_function, corner_radius=6)
+    btn_login.place(x=50, y=240)
 
+
+menu_frame()
 app.mainloop()
