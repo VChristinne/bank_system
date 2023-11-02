@@ -36,7 +36,7 @@ pip3 install ttkbootstrap
 
 ## Images
 - First GUI idea
-<img src="https://github.com/VChristinne/bank_system/assets/141720673/b49568a7-c246-4915-a9d1-ce0996b1a27c" width=400 height=auto>
+<img src="https://github.com/VChristinne/bank_system/assets/141720673/47fa369c-6301-425d-8136-64a4e230e54c" width=400 height=auto>
 
 
 ## Skills learned
