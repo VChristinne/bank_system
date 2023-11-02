@@ -17,6 +17,7 @@
 ## Features
 | Account Operations  | Description                                        |
 |---------------------|----------------------------------------------------|
+| Login               | Clients need username and password to access their accounts |
 | Deposit             | Clients can deposit money into their accounts      |
 | Withdraw            | Clients can withdraw money from their accounts     |
 | Transfer            | Clients can transfer money between others accounts |
@@ -36,8 +37,10 @@ pip3 install ttkbootstrap
 
 ## Images
 - First GUI idea
-<img src="https://github.com/VChristinne/bank_system/assets/141720673/47fa369c-6301-425d-8136-64a4e230e54c" width=400 height=auto>
+<img width=500 alt="template01" src="https://github.com/VChristinne/bank_system/assets/141720673/47fa369c-6301-425d-8136-64a4e230e54c">
 
+- Second GUI idea
+<img width=500 alt="template02" src="https://github.com/VChristinne/bank_system/assets/141720673/4a37aa68-8d41-4b64-b338-ca061da94ef7">
 
 ## Skills learned
 * Implementing complex OOP in Python.
