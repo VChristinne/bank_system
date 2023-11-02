@@ -18,7 +18,6 @@ app.wm_attributes('-fullscreen', True)
 def load_data():
     try:
         FileManager.load_data('files_json/accounts_list.json')
-        messagebox.showinfo("Success", "Data loaded successfully")
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
@@ -27,7 +26,6 @@ def save_data():
     try:
         data = {}
         FileManager.save_data('files_json/accounts_list.json', data)
-        messagebox.showinfo("Success", "Data saved successfully")
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
