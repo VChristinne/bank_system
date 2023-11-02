@@ -3,13 +3,13 @@ from PIL import ImageTk, Image
 import customtkinter as ctk
 from types_bank_account import *
 
-ctk.set_appearance_mode("System")
-ctk.set_default_color_theme("dark-blue")
+ctk.set_appearance_mode("Dark")
+ctk.set_default_color_theme("theme/dark-blue.json")
 
 app = ctk.CTk()
 app.geometry("800x600")
 app.title("Login")
-app.state("zoomed")
+app.wm_attributes('-fullscreen', True)
 
 # account_1 = CheckingAccount.load_account("12345")
 
@@ -24,12 +24,13 @@ def button_function():
     window.mainloop()
 
 
-bg = ImageTk.PhotoImage(Image.open("images/pattern.png"))
+# background image
+bg = ImageTk.PhotoImage(Image.open("images/sonoma_dark.png"))
 l1 = ctk.CTkLabel(master=app, image=bg)
 l1.pack()
 
-# creating custom frame
-frame = ctk.CTkFrame(master=l1, width=320, height=360, corner_radius=15)
+# custom frame
+frame = ctk.CTkFrame(master=l1, width=320, height=360, corner_radius=15, bg_color="transparent")
 frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
 # log in text
