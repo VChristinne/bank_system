@@ -15,8 +15,6 @@ app.title("Login")
 app.wm_attributes('-fullscreen', True)
 
 
-# account_1 = CheckingAccount.load_account("12345")
-
 def load_data():
     try:
         FileManager.load_data('files_json/accounts_list.json')
