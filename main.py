@@ -10,7 +10,7 @@ ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("theme/indigo.json")
 
 app = ctk.CTk()
-app.geometry("800x600")
+app.geometry("1280x720")
 app.title("Login")
 app.wm_attributes('-fullscreen', True)
 
@@ -50,29 +50,23 @@ def button_function(username, password):
 
 
 def menu_frame():
-    # background
-    bg = ImageTk.PhotoImage(Image.open("images/sonoma_dark.png"))
-    l1 = ctk.CTkLabel(master=app, image=bg)
+    background = ImageTk.PhotoImage(Image.open("images/sonoma_dark.png"))
+    l1 = ctk.CTkLabel(master=app, image=background)
     l1.pack()
 
-    # custom frame
-    frame = ctk.CTkFrame(master=l1, width=320, height=360)
-    frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+    custom_frame = ctk.CTkFrame(master=l1, width=320, height=360)
+    custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
-    # log in text
-    l2 = ctk.CTkLabel(master=frame, text="Log in to your account", font=('SF Pro', 20))
-    l2.place(x=60, y=45)
+    login_text = ctk.CTkLabel(master=custom_frame, text="Log in to your account", font=('SF Pro', 20))
+    login_text.place(x=60, y=45)
 
-    # usarname
-    entry_username = ctk.CTkEntry(master=frame, width=220, placeholder_text='Username')
+    entry_username = ctk.CTkEntry(master=custom_frame, width=220, placeholder_text='Username')
     entry_username.place(x=50, y=110)
 
-    # password
-    entry_password = ctk.CTkEntry(master=frame, width=220, placeholder_text='Password', show="*")
+    entry_password = ctk.CTkEntry(master=custom_frame, width=220, placeholder_text='Password', show="*")
     entry_password.place(x=50, y=165)
 
-    # button login
-    btn_login = ctk.CTkButton(master=frame, width=220, text="Login",
+    btn_login = ctk.CTkButton(master=custom_frame, width=220, text="Login",
                               command=lambda: button_function(entry_username.get(), entry_password.get()),
                               corner_radius=6)
     btn_login.place(x=50, y=240)
