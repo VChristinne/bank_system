@@ -1,18 +1,21 @@
 import tkinter
 from tkinter import messagebox
-from PIL import ImageTk, Image
 import customtkinter as ctk
+from PIL import Image
 from file_manager import FileManager
-from types_bank_account import *
+
 
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("theme/indigo.json")
 
 app = ctk.CTk()
-app.geometry("1280x720")
 app.title("Login")
+app.geometry("1280x720")
 app.wm_attributes('-fullscreen', True)
-app.
+app.resizable(True, True)
+app.minsize(500, 700)
+app.maxsize(3840, 2160)
+
 
 def load_data():
     try:
