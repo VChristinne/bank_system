@@ -12,7 +12,7 @@ app = ctk.CTk()
 app.geometry("1280x720")
 app.title("Login")
 app.wm_attributes('-fullscreen', True)
-
+app.
 
 def load_data():
     try:
@@ -49,7 +49,7 @@ def button_function(username, password):
 def menu_frame():
     images = ctk.CTkImage(light_image=Image.open("images/sonoma_light.png"),
                           dark_image=Image.open("images/sonoma_dark.png"),
-                          size=(1920, 1080))
+                          size=(3840, 2160))  # 4K monitor
 
     background = ctk.CTkLabel(master=app, image=images)
     background.pack()
