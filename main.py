@@ -75,7 +75,20 @@ def design_window():
 
 
 def register_function(id_, holder, balance, limit, password):
-    data = FileManager.save_data('files_json/accounts_list.json')
+    try:
+        data = FileManager.load_data('files_json/accounts_list.json')
+        new_account = {
+            "id_": id_,
+            "holder": holder,
+            "balance": balance,
+            "limit": limit,
+            "password": password
+        }
+        data.append(new_account)
+
+        FileManager.save_data('files_json/accounts_list.json', data)
+    except Exception as e:
+        messagebox.showerror("Error", str(e))
 
 
 def menu_login_frame():
@@ -101,7 +114,7 @@ def menu_login_frame():
                                    font=('SF Pro', 12),
                                    fg_color="#838383",
                                    hover_color="#5d5d5d",
-                                   command=lambda: register_function())
+                                   command=register_login_frame())
     create_account.place(x=120, y=270)
 
     btn_login = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Login",
