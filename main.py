@@ -78,7 +78,6 @@ def register_function(id_, holder, balance, limit, password):
     data = FileManager.save_data('files_json/accounts_list.json')
 
 
-
 def menu_login_frame():
     background = ctk.CTkLabel(master=root, image=images)
     background.pack()
@@ -114,26 +113,34 @@ def register_login_frame():
     background = ctk.CTkLabel(master=root, image=images)
     background.pack()
 
-    custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
+    custom_frame = ctk.CTkFrame(master=background, width=320, height=390)
     custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
     register_text = ctk.CTkLabel(master=custom_frame, text="Create your account", font=('SF Pro', 22))
     register_text.place(x=62, y=40)
 
     entry_number = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Number')
-    entry_number.place(x=50, y=100)
+    entry_number.place(x=50, y=90)
 
     entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Holder')
-    entry_username.place(x=50, y=145)
+    entry_username.place(x=50, y=135)
 
     entry_balance = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Balance')
-    entry_balance.place(x=50, y=190)
+    entry_balance.place(x=50, y=180)
 
     entry_limit = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Limit')
-    entry_limit.place(x=50, y=235)
+    entry_limit.place(x=50, y=225)
 
     entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
-    entry_password.place(x=50, y=280)
+    entry_password.place(x=50, y=270)
+
+    btn_register = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Create",
+                                 command=lambda: register_function(entry_number.get(),
+                                                                   entry_username.get(),
+                                                                   entry_balance.get(),
+                                                                   entry_limit.get(),
+                                                                   entry_password.get()))
+    btn_register.place(x=50, y=330)
 
 
 register_login_frame()
