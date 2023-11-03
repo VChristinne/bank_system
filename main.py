@@ -77,6 +77,11 @@ def design_window():
 def register_function(id_, holder, balance, limit, password):
     try:
         data = FileManager.load_data('files_json/accounts_list.json')
+
+        if check_already_exist(data, holder):
+            messagebox.showerror("Error", "Account already exists.")
+            return
+
         new_account = {
             "id_": id_,
             "holder": holder,
@@ -87,8 +92,16 @@ def register_function(id_, holder, balance, limit, password):
         data.append(new_account)
 
         FileManager.save_data('files_json/accounts_list.json', data)
+        messagebox.showinfo("Success", "Account created successfully.")
     except Exception as e:
         messagebox.showerror("Error", str(e))
+
+
+def check_already_exist(data, username):
+    for client in data:
+        if client['holder'] == username:
+            return True
+    return False
 
 
 def menu_login_frame():
