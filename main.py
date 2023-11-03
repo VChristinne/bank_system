@@ -128,7 +128,7 @@ def menu_login_frame():
                                    font=('SF Pro', 12),
                                    fg_color="#838383",
                                    hover_color="#5d5d5d",
-                                   command=register_login_frame())
+                                   command=switch_frame())
     create_account.place(x=120, y=270)
 
     btn_login = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Login",
@@ -137,6 +137,8 @@ def menu_login_frame():
 
 
 def register_login_frame():
+    print("Register button clicked")
+
     background = ctk.CTkLabel(master=root, image=images)
     background.pack()
 
@@ -168,6 +170,10 @@ def register_login_frame():
                                                                    entry_limit.get(),
                                                                    entry_password.get()))
     btn_register.place(x=50, y=330)
+
+
+def switch_frame():
+    register_login_frame()  # Call the register_frame function
 
 
 # register_login_frame()
