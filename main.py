@@ -4,7 +4,7 @@ import customtkinter as ctk
 from PIL import Image
 from file_manager import FileManager
 
-ctk.set_appearance_mode("Dark")
+ctk.set_appearance_mode("Light")
 ctk.set_default_color_theme("theme/indigo.json")
 
 
@@ -61,8 +61,17 @@ def design_window():
     window.minsize(500, 700)
     window.maxsize(3840, 2160)
 
-    label1 = ctk.CTkLabel(master=window, text="Home Page", font=('SF Pro', 60))
-    label1.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+    head_1 = ctk.CTkLabel(master=window,
+                          text="Welcome back!",
+                          font=('SF Pro', 35))
+    head_1.place(x=120, y=180)
+
+    head_2 = ctk.CTkLabel(master=window,
+                          text="Operations Bank",
+                          font=('SF Pro', 30),
+                          text_color=("#404040", "#cfcfcf"))
+    head_2.place(x=120, y=240)
+
     window.mainloop()
 
 
