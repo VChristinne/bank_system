@@ -93,6 +93,7 @@ def register_function(id_, holder, balance, limit, password):
 
         FileManager.save_data('files_json/accounts_list.json', data)
         messagebox.showinfo("Success", "Account created successfully.")
+        root.destroy()
     except Exception as e:
         messagebox.showerror("Error", str(e))
 
