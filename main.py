@@ -46,7 +46,6 @@ def button_function(username, password):
                 root.destroy()
                 design_window()
                 return True
-
         return False
 
     if not check_credentials():
@@ -56,7 +55,7 @@ def button_function(username, password):
 def design_window():
     window = ctk.CTk()
     window.title("Welcome")
-    window.geometry("1280x720")
+    window.geometry("1280x720+780+600")
     window.resizable(True, True)
     window.minsize(500, 700)
     window.maxsize(3840, 2160)
@@ -75,7 +74,12 @@ def design_window():
     window.mainloop()
 
 
-def menu_frame():
+def register_function(id_, holder, balance, limit, password):
+    data = FileManager.save_data('files_json/accounts_list.json')
+
+
+
+def menu_login_frame():
     background = ctk.CTkLabel(master=root, image=images)
     background.pack()
 
@@ -91,11 +95,47 @@ def menu_frame():
     entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
     entry_password.place(x=50, y=165)
 
+    create_account = ctk.CTkButton(master=custom_frame,
+                                   width=150,
+                                   height=25,
+                                   text="Register your account",
+                                   font=('SF Pro', 12),
+                                   fg_color="#838383",
+                                   hover_color="#5d5d5d",
+                                   command=lambda: register_function())
+    create_account.place(x=120, y=270)
+
     btn_login = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Login",
-                              command=lambda: button_function(entry_username.get(), entry_password.get()),
-                              corner_radius=6)
-    btn_login.place(x=50, y=240)
+                              command=lambda: button_function(entry_username.get(), entry_password.get()))
+    btn_login.place(x=50, y=230)
 
 
-menu_frame()
+def register_login_frame():
+    background = ctk.CTkLabel(master=root, image=images)
+    background.pack()
+
+    custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
+    custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+
+    register_text = ctk.CTkLabel(master=custom_frame, text="Create your account", font=('SF Pro', 22))
+    register_text.place(x=62, y=40)
+
+    entry_number = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Number')
+    entry_number.place(x=50, y=100)
+
+    entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Holder')
+    entry_username.place(x=50, y=145)
+
+    entry_balance = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Balance')
+    entry_balance.place(x=50, y=190)
+
+    entry_limit = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Limit')
+    entry_limit.place(x=50, y=235)
+
+    entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
+    entry_password.place(x=50, y=280)
+
+
+register_login_frame()
+# menu_login_frame()
 root.mainloop()
