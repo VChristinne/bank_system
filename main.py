@@ -78,7 +78,7 @@ def register_function(id_, holder, balance, limit, password):
     try:
         data = FileManager.load_data('files_json/accounts_list.json')
 
-        if check_already_exist(data, holder):
+        if check_already_exist(data, holder, id_):
             messagebox.showerror("Error", "Account already exists.")
             return
 
@@ -98,9 +98,9 @@ def register_function(id_, holder, balance, limit, password):
         messagebox.showerror("Error", str(e))
 
 
-def check_already_exist(data, username):
+def check_already_exist(data, username, number):
     for client in data:
-        if client['holder'] == username:
+        if client['holder'] == username and client['id'] == number:
             return True
     return False
 
@@ -170,6 +170,6 @@ def register_login_frame():
     btn_register.place(x=50, y=330)
 
 
-register_login_frame()
-# menu_login_frame()
+# register_login_frame()
+menu_login_frame()
 root.mainloop()
