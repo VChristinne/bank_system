@@ -4,17 +4,22 @@ import customtkinter as ctk
 from PIL import Image
 from file_manager import FileManager
 
-
 ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("theme/indigo.json")
 
-app = ctk.CTk()
-app.title("Login")
-app.geometry("1280x720")
-app.wm_attributes('-fullscreen', True)
-app.resizable(True, True)
-app.minsize(500, 700)
-app.maxsize(3840, 2160)
+
+root = ctk.CTk()
+root.title("Login")
+root.geometry("1280x720")
+root.wm_attributes('-fullscreen', True)
+root.resizable(True, True)
+root.minsize(500, 700)
+root.maxsize(3840, 2160)
+
+
+images = ctk.CTkImage(light_image=Image.open("images/sonoma_light.png"),
+                      dark_image=Image.open("images/sonoma_dark.png"),
+                      size=(3840, 2160))  # render to 4K monitor
 
 
 def load_data():
@@ -34,35 +39,35 @@ def save_data():
 
 def button_function(username, password):
     data = FileManager.load_data('files_json/accounts_list.json')
+    app = ctk.CTk()
+    app.title("Login")
+    app.geometry("1280x720")
+    app.resizable(True, True)
+    app.minsize(500, 700)
+    app.maxsize(3840, 2160)
 
     for client in data:
         if client['holder'] == username and client['password'] == password:
-            app.destroy()
-            window = ctk.CTk()
-
-            # window config
-            window.geometry("1280x720")
-            window.wm_attributes('-fullscreen', True)
-            window.resizable(True, True)
-            window.minsize(500, 700)
-            window.maxsize(3840, 2160)
-
-            # diplay on window
-            window.title(f"Welcome")
-            label1 = ctk.CTkLabel(master=window, text="Home Page", font=('SF Pro', 60))
-            label1.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
-            window.mainloop()
-            return
-
+            app.destroy()  # TODO: app destroy not working
+            design_window()
     messagebox.showerror("Error", "Invalid username or password")
 
 
-def menu_frame():
-    images = ctk.CTkImage(light_image=Image.open("images/sonoma_light.png"),
-                          dark_image=Image.open("images/sonoma_dark.png"),
-                          size=(3840, 2160))  # 4K monitor
+def design_window():
+    window = ctk.CTk()
+    window.title("Welcome")
+    window.geometry("1280x720")
+    window.resizable(True, True)
+    window.minsize(500, 700)
+    window.maxsize(3840, 2160)
 
-    background = ctk.CTkLabel(master=app, image=images)
+    label1 = ctk.CTkLabel(master=window, text="Home Page", font=('SF Pro', 60))
+    label1.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+    window.mainloop()
+
+
+def menu_frame():
+    background = ctk.CTkLabel(master=root, image=images)
     background.pack()
 
     custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
@@ -84,4 +89,4 @@ def menu_frame():
 
 
 menu_frame()
-app.mainloop()
+root.mainloop()
