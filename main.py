@@ -10,8 +10,8 @@ ctk.set_default_color_theme("theme/indigo.json")
 
 root = ctk.CTk()
 root.title("Login")
-root.geometry("1280x720")
-root.wm_attributes('-fullscreen', True)
+root.geometry("1280x720+780+600")
+root.wm_attributes('-fullscreen', False)
 root.resizable(True, True)
 root.minsize(500, 700)
 root.maxsize(3840, 2160)
@@ -39,18 +39,18 @@ def save_data():
 
 def button_function(username, password):
     data = FileManager.load_data('files_json/accounts_list.json')
-    app = ctk.CTk()
-    app.title("Login")
-    app.geometry("1280x720")
-    app.resizable(True, True)
-    app.minsize(500, 700)
-    app.maxsize(3840, 2160)
 
-    for client in data:
-        if client['holder'] == username and client['password'] == password:
-            app.destroy()  # TODO: app destroy not working
-            design_window()
-    messagebox.showerror("Error", "Invalid username or password")
+    def check_credentials():
+        for client in data:
+            if client['holder'] == username and client['password'] == password:
+                root.destroy()
+                design_window()
+                return True
+
+        return False
+
+    if not check_credentials():
+        messagebox.showerror("Error", "Invalid username or password")
 
 
 def design_window():
