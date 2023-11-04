@@ -4,13 +4,13 @@ import customtkinter as ctk
 from PIL import Image
 from file_manager import FileManager
 
-ctk.set_appearance_mode("Light")
+ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("theme/indigo.json")
 
 
 root = ctk.CTk()
 root.title("Login")
-root.geometry("1280x720+780+600")
+root.geometry("1280x720")
 root.wm_attributes('-fullscreen', False)
 root.resizable(True, True)
 root.minsize(500, 700)
@@ -22,22 +22,7 @@ images = ctk.CTkImage(light_image=Image.open("images/sonoma_light.png"),
                       size=(3840, 2160))  # render to 4K monitor
 
 
-def load_data():
-    try:
-        FileManager.load_data('files_json/accounts_list.json')
-    except Exception as e:
-        messagebox.showerror("Error", str(e))
-
-
-def save_data():
-    try:
-        data = {}
-        FileManager.save_data('files_json/accounts_list.json', data)
-    except Exception as e:
-        messagebox.showerror("Error", str(e))
-
-
-def button_function(username, password):
+def login_function(username, password):
     data = FileManager.load_data('files_json/accounts_list.json')
 
     def check_credentials():
@@ -55,7 +40,7 @@ def button_function(username, password):
 def design_window():
     window = ctk.CTk()
     window.title("Welcome")
-    window.geometry("1280x720+780+600")
+    window.geometry("1280x720")
     window.resizable(True, True)
     window.minsize(500, 700)
     window.maxsize(3840, 2160)
@@ -105,37 +90,6 @@ def check_already_exist(data, username, number):
     return False
 
 
-def menu_login_frame():
-    background = ctk.CTkLabel(master=root, image=images)
-    background.pack()
-
-    custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
-    custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
-
-    login_text = ctk.CTkLabel(master=custom_frame, text="Log in to your account", font=('SF Pro', 22))
-    login_text.place(x=55, y=40)
-
-    entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Username')
-    entry_username.place(x=50, y=110)
-
-    entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
-    entry_password.place(x=50, y=165)
-
-    create_account = ctk.CTkButton(master=custom_frame,
-                                   width=150,
-                                   height=25,
-                                   text="Register your account",
-                                   font=('SF Pro', 12),
-                                   fg_color="#838383",
-                                   hover_color="#5d5d5d",
-                                   command=switch_frame())
-    create_account.place(x=120, y=270)
-
-    btn_login = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Login",
-                              command=lambda: button_function(entry_username.get(), entry_password.get()))
-    btn_login.place(x=50, y=230)
-
-
 def register_login_frame():
     print("Register button clicked")
 
@@ -172,8 +126,35 @@ def register_login_frame():
     btn_register.place(x=50, y=330)
 
 
-def switch_frame():
-    register_login_frame()  # Call the register_frame function
+def menu_login_frame():
+    background = ctk.CTkLabel(master=root, image=images)
+    background.pack()
+
+    custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
+    custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+
+    login_text = ctk.CTkLabel(master=custom_frame, text="Log in to your account", font=('SF Pro', 22))
+    login_text.place(x=55, y=40)
+
+    entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Username')
+    entry_username.place(x=50, y=110)
+
+    entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
+    entry_password.place(x=50, y=165)
+
+    create_account = ctk.CTkButton(master=custom_frame,
+                                   width=150,
+                                   height=25,
+                                   text="Register your account",
+                                   font=('SF Pro', 12),
+                                   fg_color="#838383",
+                                   hover_color="#5d5d5d",
+                                   command=register_login_frame())
+    create_account.place(x=120, y=270)
+
+    btn_login = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Login",
+                              command=lambda: login_function(entry_username.get(), entry_password.get()))
+    btn_login.place(x=50, y=230)
 
 
 # register_login_frame()
