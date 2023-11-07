@@ -11,7 +11,7 @@ ctk.set_default_color_theme("theme/indigo.json")
 root = ctk.CTk()
 root.title("Cashinator")
 root.geometry("1280x720")
-root.wm_attributes('-fullscreen', False)
+root.wm_attributes('-fullscreen', True)
 root.resizable(True, True)
 root.minsize(600, 700)
 root.maxsize(3840, 2160)
@@ -44,7 +44,7 @@ def create_home_page(username, balance):
 
     budget_info = ctk.CTkLabel(master=budget_info_frame,
                                text=f'$ {balance}',
-                               font=('SF Pro', 15))
+                               font=('SF Pro', 18))
     budget_info.place(x=20, y=30)
 
     return custom_frame
