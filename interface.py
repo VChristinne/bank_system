@@ -45,7 +45,7 @@ def create_home_page(username, balance):
     budget_info = ctk.CTkLabel(master=budget_info_frame,
                                text=f'$ {balance}',
                                font=('SF Pro', 18))
-    budget_info.place(x=20, y=30)
+    budget_info.place(x=20, y=28)
 
     return custom_frame
 
