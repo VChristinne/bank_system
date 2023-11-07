@@ -7,13 +7,12 @@ from file_manager import FileManager
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("theme/indigo.json")
 
-# window settings
 root = ctk.CTk()
 root.title("Cashinator")
 root.geometry("1280x720")
-root.wm_attributes('-fullscreen', True)
+root.wm_attributes('-fullscreen', False)
 root.resizable(True, True)
-root.minsize(500, 700)
+root.minsize(600, 700)
 root.maxsize(3840, 2160)
 
 images = ctk.CTkImage(light_image=Image.open("images/sonoma_light.png"),
@@ -24,9 +23,12 @@ background = ctk.CTkLabel(master=root, image=images)
 background.pack()
 
 
-def create_home_page():
-    custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
+def create_home_page(username):
+    custom_frame = ctk.CTkFrame(master=background, width=600, height=700)
     custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+
+    head_1 = ctk.CTkLabel(master=custom_frame, text=f'Welcome {username}!', font=('SF Pro', 22))
+    head_1.place(x=60, y=60)
 
     return custom_frame
 
@@ -37,7 +39,7 @@ def login_function(username, password):
     def check_credentials():
         for client in data:
             if client['holder'] == username and client['password'] == password:
-                create_home_page()
+                create_home_page(username)
                 return True
         return False
 
