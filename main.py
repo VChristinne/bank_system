@@ -7,7 +7,6 @@ from file_manager import FileManager
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("theme/indigo.json")
 
-
 root = ctk.CTk()
 root.title("Login")
 root.geometry("1280x720")
@@ -15,7 +14,6 @@ root.wm_attributes('-fullscreen', False)
 root.resizable(True, True)
 root.minsize(500, 700)
 root.maxsize(3840, 2160)
-
 
 images = ctk.CTkImage(light_image=Image.open("images/sonoma_light.png"),
                       dark_image=Image.open("images/sonoma_dark.png"),
@@ -90,71 +88,76 @@ def check_already_exist(data, username, number):
     return False
 
 
-def register_login_frame():
-    print("Register button clicked")
-
-    background = ctk.CTkLabel(master=root, image=images)
-    background.pack()
-
-    custom_frame = ctk.CTkFrame(master=background, width=320, height=390)
-    custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
-
-    register_text = ctk.CTkLabel(master=custom_frame, text="Create your account", font=('SF Pro', 22))
-    register_text.place(x=62, y=40)
-
-    entry_number = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Number')
-    entry_number.place(x=50, y=90)
-
-    entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Holder')
-    entry_username.place(x=50, y=135)
-
-    entry_balance = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Balance')
-    entry_balance.place(x=50, y=180)
-
-    entry_limit = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Limit')
-    entry_limit.place(x=50, y=225)
-
-    entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
-    entry_password.place(x=50, y=270)
-
-    btn_register = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Create",
-                                 command=lambda: register_function(entry_number.get(),
-                                                                   entry_username.get(),
-                                                                   entry_balance.get(),
-                                                                   entry_limit.get(),
-                                                                   entry_password.get()))
-    btn_register.place(x=50, y=330)
-
-
 def menu_login_frame():
+    def create_login_frame():
+        custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
+        custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+
+        login_text = ctk.CTkLabel(master=custom_frame, text="Log in to your account", font=('SF Pro', 22))
+        login_text.place(x=55, y=40)
+
+        entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Username')
+        entry_username.place(x=50, y=110)
+
+        entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
+        entry_password.place(x=50, y=165)
+
+        create_account = ctk.CTkButton(master=custom_frame,
+                                       width=150,
+                                       height=25,
+                                       text="Register your account",
+                                       font=('SF Pro', 12),
+                                       fg_color="#838383",
+                                       hover_color="#5d5d5d",
+                                       command=lambda: toggle_to_register_frame())
+        create_account.place(x=120, y=270)
+
+        btn_login = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Login",
+                                  command=lambda: login_function(entry_username.get(), entry_password.get()))
+        btn_login.place(x=50, y=230)
+
+        return custom_frame
+
     background = ctk.CTkLabel(master=root, image=images)
     background.pack()
 
-    custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
-    custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+    login_frame = create_login_frame()
 
-    login_text = ctk.CTkLabel(master=custom_frame, text="Log in to your account", font=('SF Pro', 22))
-    login_text.place(x=55, y=40)
+    def toggle_to_register_frame():
+        login_frame.destroy()
+        register_frame = create_register_frame()
 
-    entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Username')
-    entry_username.place(x=50, y=110)
+    def create_register_frame():
+        custom_frame = ctk.CTkFrame(master=background, width=320, height=390)
+        custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
-    entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
-    entry_password.place(x=50, y=165)
+        register_text = ctk.CTkLabel(master=custom_frame, text="Create your account", font=('SF Pro', 22))
+        register_text.place(x=62, y=40)
 
-    create_account = ctk.CTkButton(master=custom_frame,
-                                   width=150,
-                                   height=25,
-                                   text="Register your account",
-                                   font=('SF Pro', 12),
-                                   fg_color="#838383",
-                                   hover_color="#5d5d5d",
-                                   command=register_login_frame())
-    create_account.place(x=120, y=270)
+        entry_number = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Number')
+        entry_number.place(x=50, y=90)
 
-    btn_login = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Login",
-                              command=lambda: login_function(entry_username.get(), entry_password.get()))
-    btn_login.place(x=50, y=230)
+        entry_username = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Holder')
+        entry_username.place(x=50, y=135)
+
+        entry_balance = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Balance')
+        entry_balance.place(x=50, y=180)
+
+        entry_limit = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Limit')
+        entry_limit.place(x=50, y=225)
+
+        entry_password = ctk.CTkEntry(master=custom_frame, width=220, height=35, placeholder_text='Password', show="*")
+        entry_password.place(x=50, y=270)
+
+        btn_register = ctk.CTkButton(master=custom_frame, width=220, height=35, text="Create",
+                                     command=lambda: register_function(entry_number.get(),
+                                                                       entry_username.get(),
+                                                                       entry_balance.get(),
+                                                                       entry_limit.get(),
+                                                                       entry_password.get()))
+        btn_register.place(x=50, y=330)
+
+        return custom_frame
 
 
 # register_login_frame()
