@@ -4,6 +4,7 @@
 *  Access to an account is secured with a **password**.
 *  The user interface is built using **customtkinter**.
 *  Account and client information, as well as transaction history, are saved in **JSON** files.
+*  **Light** and **dark** mode automatic.
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 ![Static Badge](https://img.shields.io/badge/final%20project%20CS50P-8A2BE2)
@@ -39,8 +40,19 @@ pip3 install pillow
 ## Video Demo
 
 ## Images
-- Login Screen
-<img width=900 alt="image of login screen" src="https://github.com/VChristinne/bank_system/assets/141720673/a2159948-5cfd-4f68-b372-850a9a2ec71e">
+- ***Login Screen***
+<img width="500" alt="login screen light mode" src="https://github.com/VChristinne/bank_system/assets/141720673/8cff8e9c-c718-4d78-8532-52ad583a4e2a">
+<img width="500" alt="login screen dark mode" src="https://github.com/VChristinne/bank_system/assets/141720673/374e2f1a-a1a5-4320-a8d5-45ec85d28ae4">
+
+- ***Register Screen***
+<img width="500" alt="register screen light mode" src="https://github.com/VChristinne/bank_system/assets/141720673/e0623b61-ff80-4669-9cf6-51fd1d3e3e4e">
+<img width="500" alt="register screen dark mode" src="https://github.com/VChristinne/bank_system/assets/141720673/76d7a530-7540-437e-abdd-d0300edfee1d">
+
+- ***Feedbacks to user***
+<img width="320" alt="feedback account created" src="https://github.com/VChristinne/bank_system/assets/141720673/b91df54e-21a8-4f5d-b75e-d3238f19078c">
+<img width="320" alt="feedback account already exists" src="https://github.com/VChristinne/bank_system/assets/141720673/f02dad40-62a7-4ca9-b166-21d783b001e7">
+<img width="320" alt="feedback info incorrect" src="https://github.com/VChristinne/bank_system/assets/141720673/7392cf6c-9574-4e93-b82a-580a11148e54">
+
 
 ## Skills learned
 * Implementing complex OOP in Python.
