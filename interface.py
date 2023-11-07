@@ -2,6 +2,7 @@ import tkinter
 from tkinter import messagebox
 import customtkinter as ctk
 from PIL import Image
+from bank_system.account import Account
 from file_manager import FileManager
 
 ctk.set_appearance_mode("System")
@@ -23,12 +24,28 @@ background = ctk.CTkLabel(master=root, image=images)
 background.pack()
 
 
-def create_home_page(username):
+def create_home_page(username, balance):
     custom_frame = ctk.CTkFrame(master=background, width=600, height=700)
     custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
-    head_1 = ctk.CTkLabel(master=custom_frame, text=f'Welcome {username}!', font=('SF Pro', 22))
+    head_1 = ctk.CTkLabel(master=custom_frame,
+                          text=f'Hey, {username}!',
+                          font=('SF Pro', 25))
     head_1.place(x=60, y=60)
+
+    head_2 = ctk.CTkLabel(master=custom_frame,
+                          text='Account',
+                          font=('SF Pro', 20),
+                          text_color=('#727272', '#cfcfcf'))
+    head_2.place(x=60, y=120)
+
+    budget_info_frame = ctk.CTkFrame(master=custom_frame, width=480, height=80)
+    budget_info_frame.place(x=60, y=180)
+
+    budget_info = ctk.CTkLabel(master=budget_info_frame,
+                               text=f'$ {balance}',
+                               font=('SF Pro', 15))
+    budget_info.place(x=20, y=30)
 
     return custom_frame
 
@@ -39,7 +56,8 @@ def login_function(username, password):
     def check_credentials():
         for client in data:
             if client['holder'] == username and client['password'] == password:
-                create_home_page(username)
+                account = Account(client['id_'], client['holder'], client['balance'], client['limit'], client['password'])
+                create_home_page(username, account.balance)
                 return True
         return False
 
