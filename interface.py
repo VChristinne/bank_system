@@ -7,8 +7,9 @@ from file_manager import FileManager
 ctk.set_appearance_mode("System")
 ctk.set_default_color_theme("theme/indigo.json")
 
+# window settings
 root = ctk.CTk()
-root.title("Login")
+root.title("Cashinator")
 root.geometry("1280x720")
 root.wm_attributes('-fullscreen', True)
 root.resizable(True, True)
@@ -19,6 +20,16 @@ images = ctk.CTkImage(light_image=Image.open("images/sonoma_light.png"),
                       dark_image=Image.open("images/sonoma_dark.png"),
                       size=(3840, 2160))  # render to 4K monitor
 
+background = ctk.CTkLabel(master=root, image=images)
+background.pack()
+
+
+def create_home_page():
+    custom_frame = ctk.CTkFrame(master=background, width=320, height=360)
+    custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
+
+    return custom_frame
+
 
 def login_function(username, password):
     data = FileManager.load_data('files_json/accounts_list.json')
@@ -26,35 +37,12 @@ def login_function(username, password):
     def check_credentials():
         for client in data:
             if client['holder'] == username and client['password'] == password:
-                root.destroy()
-                design_window()
+                create_home_page()
                 return True
         return False
 
     if not check_credentials():
         messagebox.showerror("Error", "Invalid username or password")
-
-
-def design_window():
-    window = ctk.CTk()
-    window.title("Welcome")
-    window.geometry("1280x720")
-    window.resizable(True, True)
-    window.minsize(500, 700)
-    window.maxsize(3840, 2160)
-
-    head_1 = ctk.CTkLabel(master=window,
-                          text="Welcome back!",
-                          font=('SF Pro', 35))
-    head_1.place(x=120, y=180)
-
-    head_2 = ctk.CTkLabel(master=window,
-                          text="Operations Bank",
-                          font=('SF Pro', 30),
-                          text_color=("#404040", "#cfcfcf"))
-    head_2.place(x=120, y=240)
-
-    window.mainloop()
 
 
 def show_login_menu():
@@ -123,10 +111,7 @@ def create_login_frame():
     return custom_frame
 
 
-background = ctk.CTkLabel(master=root, image=images)
-background.pack()
-
-login_frame = create_login_frame()
+login_frame = create_login_frame()  # toggle_to_register_frame
 
 
 def toggle_to_register_frame():
