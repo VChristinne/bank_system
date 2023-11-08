@@ -30,7 +30,8 @@ def deposit_button_clicked(username):
     try:
         for client in data:
             if client['holder'] == username:
-                account = Account(client['id_'], client['holder'], client['balance'], client['limit'], client['password'])
+                account = Account(client['id_'], client['holder'], client['balance'], client['limit'],
+                                  client['password'])
                 amount_to_deposit = float(tkinter.simpledialog.askfloat("Deposit", "Enter amount to be deposited:"))
                 account.deposit(amount_to_deposit)
                 client['balance'] = account.balance
@@ -73,7 +74,31 @@ def create_home_page(username, balance):
                                 text=f'⤵\nDeposit',
                                 font=('SF Pro', 18),
                                 command=lambda: deposit_button_clicked(username))
-    deposit_btn.place(x=60, y=300)
+    deposit_btn.place(x=80, y=300)
+
+    withdraw_btn = ctk.CTkButton(master=custom_frame,
+                                 width=90,
+                                 height=80,
+                                 text=f'⤴\nWithdraw',
+                                 font=('SF Pro', 18),
+                                 command=lambda: deposit_button_clicked(username))
+    withdraw_btn.place(x=190, y=300)
+
+    transfer_btn = ctk.CTkButton(master=custom_frame,
+                                 width=90,
+                                 height=80,
+                                 text=f'↪\nTransfer',
+                                 font=('SF Pro', 18),
+                                 command=lambda: deposit_button_clicked(username))
+    transfer_btn.place(x=300, y=300)
+
+    history_btn = ctk.CTkButton(master=custom_frame,
+                                width=90,
+                                height=80,
+                                text=f'↔\nHistory',
+                                font=('SF Pro', 18),
+                                command=lambda: deposit_button_clicked(username))
+    history_btn.place(x=410, y=300)
 
     return custom_frame
 
@@ -84,7 +109,8 @@ def login_function(username, password):
     def check_credentials():
         for client in data:
             if client['holder'] == username and client['password'] == password:
-                account = Account(client['id_'], client['holder'], client['balance'], client['limit'], client['password'])
+                account = Account(client['id_'], client['holder'], client['balance'], client['limit'],
+                                  client['password'])
                 create_home_page(username, account.balance)
                 return True
         return False
