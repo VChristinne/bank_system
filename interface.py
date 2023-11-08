@@ -5,13 +5,13 @@ from PIL import Image
 from bank_system.account import Account
 from file_manager import FileManager
 
-ctk.set_appearance_mode("System")
+ctk.set_appearance_mode("Dark")
 ctk.set_default_color_theme("theme/indigo.json")
 
 root = ctk.CTk()
 root.title("Cashinator")
 root.geometry("1280x720")
-root.wm_attributes('-fullscreen', True)
+root.wm_attributes('-fullscreen', False)
 root.resizable(True, True)
 root.minsize(600, 700)
 root.maxsize(3840, 2160)
@@ -22,6 +22,23 @@ images = ctk.CTkImage(light_image=Image.open("images/sonoma_light.png"),
 
 background = ctk.CTkLabel(master=root, image=images)
 background.pack()
+
+
+def deposit_button_clicked(username):
+    data = FileManager.load_data('files_json/accounts_list.json')
+
+    try:
+        for client in data:
+            if client['holder'] == username:
+                account = Account(client['id_'], client['holder'], client['balance'], client['limit'], client['password'])
+                amount_to_deposit = float(tkinter.simpledialog.askfloat("Deposit", "Enter amount to be deposited:"))
+                account.deposit(amount_to_deposit)
+                client['balance'] = account.balance
+                break
+        FileManager.save_data('files_json/accounts_list.json', data)
+        create_home_page(username=client['holder'], balance=account.balance)
+    except ValueError:
+        messagebox.showerror("Error", "Invalid input for deposit amount.")
 
 
 def create_home_page(username, balance):
@@ -36,16 +53,27 @@ def create_home_page(username, balance):
     head_2 = ctk.CTkLabel(master=custom_frame,
                           text='Account',
                           font=('SF Pro', 20),
-                          text_color=('#727272', '#cfcfcf'))
+                          text_color=('#727272', '#CFCFCF'))
     head_2.place(x=60, y=120)
 
-    budget_info_frame = ctk.CTkFrame(master=custom_frame, width=480, height=80)
+    budget_info_frame = ctk.CTkFrame(master=custom_frame,
+                                     width=480,
+                                     height=80,
+                                     fg_color=('#A1A0E8', '#69648E'))
     budget_info_frame.place(x=60, y=180)
 
     budget_info = ctk.CTkLabel(master=budget_info_frame,
-                               text=f'$ {balance}',
-                               font=('SF Pro', 18))
+                               text=f'$ {float(balance):,.2f}',
+                               font=('SF Pro', 20))
     budget_info.place(x=20, y=28)
+
+    deposit_btn = ctk.CTkButton(master=custom_frame,
+                                width=90,
+                                height=80,
+                                text=f'⤵\nDeposit',
+                                font=('SF Pro', 18),
+                                command=lambda: deposit_button_clicked(username))
+    deposit_btn.place(x=60, y=300)
 
     return custom_frame
 
