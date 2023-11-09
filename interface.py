@@ -24,7 +24,7 @@ background = ctk.CTkLabel(master=root, image=images)
 background.pack()
 
 
-def deposit_button_clicked(username):
+def deposit_function(username):
     data = FileManager.load_data('files_json/accounts_list.json')
 
     try:
@@ -40,6 +40,58 @@ def deposit_button_clicked(username):
         create_home_page(username=client['holder'], balance=account.balance)
     except ValueError:
         messagebox.showerror("Error", "Invalid input for deposit amount.")
+
+
+def withdraw_function(username):
+    data = FileManager.load_data('files_json/accounts_list.json')
+
+    try:
+        for client in data:
+            if client['holder'] == username:
+                account = Account(client['id_'], client['holder'], client['balance'], client['limit'],
+                                  client['password'])
+                amount_to_withdraw = float(tkinter.simpledialog.askfloat("Withdraw", "Enter amount to be withdrew:"))
+                account.withdraw(amount_to_withdraw)
+                client['balance'] = account.balance
+                break
+        FileManager.save_data('files_json/accounts_list.json', data)
+        create_home_page(username=client['holder'], balance=account.balance)
+    except ValueError:
+        messagebox.showerror("Error", "Invalid input for withdraw amount.")
+
+
+def transfer_function(username):
+    data = FileManager.load_data('files_json/accounts_list.json')
+
+    try:
+        for client in data:
+            if client['holder'] == username:
+                account = Account(client['id_'], client['holder'], client['balance'], client['limit'],
+                                  client['password'])
+                amount_to_withdraw = float(tkinter.simpledialog.askfloat("Withdraw", "Enter amount to be withdrew:"))
+                account.transfer_to(client['holder'], amount_to_withdraw)
+                client['balance'] = account.balance
+                break
+        FileManager.save_data('files_json/accounts_list.json', data)
+        create_home_page(username=client['holder'], balance=account.balance)
+    except ValueError:
+        messagebox.showerror("Error", "Invalid input for transfer amount.")
+
+
+# TODO: fix show history error
+def history_function(username):
+    data = FileManager.load_data('files_json/accounts_list.json')
+
+    try:
+        for client in data:
+            if client['holder'] == username:
+                account = Account(client['id_'], client['holder'], client['balance'], client['limit'],
+                                  client['password'])
+                account.get_history()
+                break
+        create_home_page(username=client['holder'], balance=account.balance)
+    except ValueError:
+        messagebox.showerror("Error", "Invalid input for withdraw amount.")
 
 
 def create_home_page(username, balance):
@@ -73,7 +125,7 @@ def create_home_page(username, balance):
                                 height=80,
                                 text=f'⤵\nDeposit',
                                 font=('SF Pro', 18),
-                                command=lambda: deposit_button_clicked(username))
+                                command=lambda: deposit_function(username))
     deposit_btn.place(x=80, y=300)
 
     withdraw_btn = ctk.CTkButton(master=custom_frame,
@@ -81,7 +133,7 @@ def create_home_page(username, balance):
                                  height=80,
                                  text=f'⤴\nWithdraw',
                                  font=('SF Pro', 18),
-                                 command=lambda: deposit_button_clicked(username))
+                                 command=lambda: withdraw_function())
     withdraw_btn.place(x=190, y=300)
 
     transfer_btn = ctk.CTkButton(master=custom_frame,
@@ -89,7 +141,7 @@ def create_home_page(username, balance):
                                  height=80,
                                  text=f'↪\nTransfer',
                                  font=('SF Pro', 18),
-                                 command=lambda: deposit_button_clicked(username))
+                                 command=lambda: transfer_function())
     transfer_btn.place(x=300, y=300)
 
     history_btn = ctk.CTkButton(master=custom_frame,
@@ -97,7 +149,7 @@ def create_home_page(username, balance):
                                 height=80,
                                 text=f'↔\nHistory',
                                 font=('SF Pro', 18),
-                                command=lambda: deposit_button_clicked(username))
+                                command=lambda: history_function())
     history_btn.place(x=410, y=300)
 
     return custom_frame
