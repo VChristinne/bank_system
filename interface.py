@@ -60,6 +60,7 @@ def withdraw_function(username):
         messagebox.showerror("Error", "Invalid input for withdraw amount.")
 
 
+# TODO: fix account to transfer error
 def transfer_function(username):
     data = FileManager.load_data('files_json/accounts_list.json')
 
@@ -68,8 +69,9 @@ def transfer_function(username):
             if client['holder'] == username:
                 account = Account(client['id_'], client['holder'], client['balance'], client['limit'],
                                   client['password'])
-                amount_to_withdraw = float(tkinter.simpledialog.askfloat("Withdraw", "Enter amount to be withdrew:"))
-                account.transfer_to(client['holder'], amount_to_withdraw)
+                account_to_transfer = float(tkinter.simpledialog.askstring("Transfer", "Enter account to transfer:"))
+                amount_to_transfer = float(tkinter.simpledialog.askfloat("Transfer", "Enter amount to be transfer:"))
+                account.transfer_to(account_to_transfer, amount_to_transfer)
                 client['balance'] = account.balance
                 break
         FileManager.save_data('files_json/accounts_list.json', data)
@@ -133,7 +135,7 @@ def create_home_page(username, balance):
                                  height=80,
                                  text=f'⤴\nWithdraw',
                                  font=('SF Pro', 18),
-                                 command=lambda: withdraw_function())
+                                 command=lambda: withdraw_function(username))
     withdraw_btn.place(x=190, y=300)
 
     transfer_btn = ctk.CTkButton(master=custom_frame,
@@ -141,7 +143,7 @@ def create_home_page(username, balance):
                                  height=80,
                                  text=f'↪\nTransfer',
                                  font=('SF Pro', 18),
-                                 command=lambda: transfer_function())
+                                 command=lambda: transfer_function(username))
     transfer_btn.place(x=300, y=300)
 
     history_btn = ctk.CTkButton(master=custom_frame,
@@ -149,7 +151,7 @@ def create_home_page(username, balance):
                                 height=80,
                                 text=f'↔\nHistory',
                                 font=('SF Pro', 18),
-                                command=lambda: history_function())
+                                command=lambda: history_function(username))
     history_btn.place(x=410, y=300)
 
     return custom_frame
