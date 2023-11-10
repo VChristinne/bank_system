@@ -29,30 +29,32 @@ class Account:
             new_balance = self._balance + value
             if new_balance <= self._limit:
                 self._balance = new_balance
-                self._history.add_transaction(f"Deposit of ${value}")
+                self._history.add_transaction(f"Deposit of ${value:.2f}")
             else:
                 raise ValueError(Fore.RED + "Limit Exceeded!" + Fore.RESET)
         else:
             raise ValueError(Fore.YELLOW + "Tried to deposit less than $1!" + Fore.RESET)
 
-    def withdraw(self, value):
+    def withdraw(self, value, show_message=True):
         if value < 0:
             raise ValueError(Fore.YELLOW + "Tried to withdraw less than $1!" + Fore.RESET)
         elif self._balance < value:
             raise ValueError(Fore.RED + "Insufficient funds!" + Fore.RESET)
         else:
             self._balance -= value
-            self._history.add_transaction(f"Withdraw of ${value}")
+            if show_message:
+                self._history.add_transaction(f"Withdraw of ${value:.2f}")
             return True
 
     def transfer_to(self, destination, value):
-        withdrew = self.withdraw(value)
+        withdrew = self.withdraw(value, show_message=False)
         if not withdrew:
             return False
 
         if isinstance(destination, Account):
             destination._balance += value
-            self._history.add_transaction(f"Transfer of ${value}")
+            self._history.add_transaction(f"Transfer of ${value:.2f}")
+            destination._history.add_transaction(f"{self._holder} transfer {value:.2f}")
             return True
         else:
             raise ValueError(Fore.RED + "Invalid destination account!" + Fore.RESET)

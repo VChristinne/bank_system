@@ -60,13 +60,6 @@ def withdraw_function(username):
         messagebox.showerror("Error", "Invalid input for withdraw amount.")
 
 
-def get_account_by_username(username, data):
-    for client in data:
-        if client['holder'] == username:
-            return client
-    return None
-
-
 def transfer_function(username):
     data = FileManager.load_data('files_json/accounts_list.json')
 
@@ -99,7 +92,6 @@ def transfer_function(username):
         messagebox.showerror("Error", "Invalid input for transfer amount.")
 
 
-# TODO: fix show history error
 def history_function(username):
     data = FileManager.load_data('files_json/accounts_list.json')
 
