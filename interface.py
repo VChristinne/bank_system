@@ -39,7 +39,7 @@ def deposit_function(username):
         FileManager.save_data('files_json/accounts_list.json', data)
         create_home_page(username=client['holder'], balance=account.balance)
     except ValueError:
-        messagebox.showerror("Error", "Invalid input for deposit amount.")
+        messagebox.showerror("Error", "Invalid amount to deposit")
 
 
 def withdraw_function(username):
@@ -57,7 +57,7 @@ def withdraw_function(username):
         FileManager.save_data('files_json/accounts_list.json', data)
         create_home_page(username=client['holder'], balance=account.balance)
     except ValueError:
-        messagebox.showerror("Error", "Invalid input for withdraw amount.")
+        messagebox.showerror("Error", "Invalid amount to withdraw")
 
 
 def transfer_function(username):
@@ -84,12 +84,12 @@ def transfer_function(username):
                         FileManager.save_data('files_json/accounts_list.json', data)
                         create_home_page(username=client['holder'], balance=account.balance)
                     else:
-                        messagebox.showerror("Error", "Insufficient funds for the transfer.")
+                        messagebox.showerror("Error", "Insufficient funds for the transfer")
                 else:
-                    messagebox.showerror("Error", "Destination account not found.")
+                    messagebox.showerror("Error", "Destination account not found")
                 break
     except ValueError:
-        messagebox.showerror("Error", "Invalid input for transfer amount.")
+        messagebox.showerror("Error", "Invalid amount to transfer")
 
 
 def history_function(username):
@@ -105,7 +105,7 @@ def history_function(username):
                 break
         create_home_page(username=client['holder'], balance=account.balance)
     except ValueError:
-        messagebox.showerror("Error", "Access to history invalid.")
+        messagebox.showerror("Error", "Access to history invalid")
 
 
 def create_home_page(username, balance):
@@ -191,19 +191,26 @@ def show_login_menu():
     login_frame = create_login_frame()
 
 
+def check_already_exist(data, username, number):
+    for client in data:
+        if client['holder'] == username and client['id_'] == number:
+            return True
+    return False
+
+
 def register_function(id_, holder, balance, limit, password):
     try:
         data = FileManager.load_data('files_json/accounts_list.json')
 
         if check_already_exist(data, holder, id_):
-            messagebox.showerror("Error", "Account already exists.")
+            messagebox.showerror("Error", "Account already exists")
             return
 
         new_account = {
             "id_": id_,
             "holder": holder,
-            "balance": float(f"{balance:.2f}"),
-            "limit": float(f"{limit:.2f}"),
+            "balance": float(balance),
+            "limit": float(limit),
             "password": password
         }
         data.append(new_account)
@@ -212,13 +219,6 @@ def register_function(id_, holder, balance, limit, password):
         show_success_message()
     except Exception as e:
         messagebox.showerror("Error", str(e))
-
-
-def check_already_exist(data, username, number):
-    for client in data:
-        if client['holder'] == username and client['id'] == number:
-            return True
-    return False
 
 
 def create_login_frame():
@@ -260,7 +260,7 @@ def toggle_to_register_frame():
 
 
 def show_success_message():
-    messagebox.showinfo("Success", "Account created successfully.")
+    messagebox.showinfo("Success", "Account created successfully")
     show_login_menu()
 
 
