@@ -11,14 +11,14 @@
 ![Static Badge](https://badgen.net/badge/python/v3.11+?color=cyan)
 ![Static Badge](https://badgen.net/badge/GUI/customtkinter?color=blue)
 ![Static Badge](https://badgen.net/badge/IDE/pycharm?color=green)
-![commits](https://badgen.net/github/commits/VChristinne/bank_system/main?color=orange)
 [![License](https://badgen.net/badge/license/LGPL-3.0-only?color=black)](https://opensource.org/license/lgpl-3-0/)
 
 
 ## Features
-| Account Operations | Description                                                 |
+| Characteristics    | Description                                                 |
 |--------------------|-------------------------------------------------------------|
 | Login              | Clients need username and password to access their accounts |
+| Register           | New clients can register an account with their details      |
 | Deposit            | Clients can deposit money into their accounts               |
 | Withdraw           | Clients can withdraw money from their accounts              |
 | Transfer           | Clients can transfer money between others accounts          |
@@ -40,18 +40,27 @@ pip3 install pillow
 ## Video Demo
 
 ## Images
-- ***Login Screen***
+- ***Login***
 <img width="500" alt="login screen light mode" src="https://github.com/VChristinne/bank_system/assets/141720673/8cff8e9c-c718-4d78-8532-52ad583a4e2a">
 <img width="500" alt="login screen dark mode" src="https://github.com/VChristinne/bank_system/assets/141720673/374e2f1a-a1a5-4320-a8d5-45ec85d28ae4">
 
-- ***Register Screen***
+- ***Register***
 <img width="500" alt="register screen light mode" src="https://github.com/VChristinne/bank_system/assets/141720673/e0623b61-ff80-4669-9cf6-51fd1d3e3e4e">
 <img width="500" alt="register screen dark mode" src="https://github.com/VChristinne/bank_system/assets/141720673/76d7a530-7540-437e-abdd-d0300edfee1d">
 
+- ***Home Page***
+<img width="500" alt="home page light mode" src="https://github.com/VChristinne/bank_system/assets/141720673/e1402b4c-8be1-4b9c-b1ce-bb95eece5d2f">
+<img width="500" alt="home page dark mode" src="https://github.com/VChristinne/bank_system/assets/141720673/5aeb2395-416f-4b16-b02f-411ecd32b4f6">
+
 - ***Feedbacks to user***
-<img width="320" alt="feedback account created" src="https://github.com/VChristinne/bank_system/assets/141720673/b91df54e-21a8-4f5d-b75e-d3238f19078c">
-<img width="320" alt="feedback account already exists" src="https://github.com/VChristinne/bank_system/assets/141720673/f02dad40-62a7-4ca9-b166-21d783b001e7">
-<img width="320" alt="feedback info incorrect" src="https://github.com/VChristinne/bank_system/assets/141720673/7392cf6c-9574-4e93-b82a-580a11148e54">
+<img width="320" alt="account created sucessfully" src="https://github.com/VChristinne/bank_system/assets/141720673/9f793f56-d218-4ee2-b625-7e1b830bedda">
+<img width="320" alt="account already exists" src="https://github.com/VChristinne/bank_system/assets/141720673/81fffa1a-92a7-4c37-8d4e-50260de535b5">
+<img width="320" alt="invalid username or password" src="https://github.com/VChristinne/bank_system/assets/141720673/61d1318e-69d7-43f4-82c1-cb95a49d9005">
+<img width="320" alt="invalid amount to deposit" src="https://github.com/VChristinne/bank_system/assets/141720673/59a1c04a-a464-443b-8652-bfe4728904ba">
+<img width="320" alt="invalid amount to withdraw" src="https://github.com/VChristinne/bank_system/assets/141720673/3a2b01b6-abf8-46e7-b3d7-92bf31fe94c1">
+<img width="320" alt="invalid amount to transfer" src="https://github.com/VChristinne/bank_system/assets/141720673/c78d9def-5106-4b61-9603-af30f46ac9d2">
+<img width="320" alt="destination account not found" src="https://github.com/VChristinne/bank_system/assets/141720673/888a2ded-d0ed-4de1-a890-89d79bcec39a">
+<img width="320" alt="account history" src="https://github.com/VChristinne/bank_system/assets/141720673/30316fc7-94a2-4dcb-a6ca-fe4df8b7fb5e">
 
 
 ## Skills learned
