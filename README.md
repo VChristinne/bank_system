@@ -60,7 +60,6 @@ pip3 install pillow
 <img width="320" alt="invalid amount to withdraw" src="https://github.com/VChristinne/bank_system/assets/141720673/3a2b01b6-abf8-46e7-b3d7-92bf31fe94c1">
 <img width="320" alt="invalid amount to transfer" src="https://github.com/VChristinne/bank_system/assets/141720673/c78d9def-5106-4b61-9603-af30f46ac9d2">
 <img width="320" alt="destination account not found" src="https://github.com/VChristinne/bank_system/assets/141720673/888a2ded-d0ed-4de1-a890-89d79bcec39a">
-<img width="320" alt="account history" src="https://github.com/VChristinne/bank_system/assets/141720673/30decf30-bb7d-4b61-840a-a57dfd7f72bf">
 <img width="320" alt="account history" src="https://github.com/VChristinne/bank_system/assets/141720673/30316fc7-94a2-4dcb-a6ca-fe4df8b7fb5e">
 
 
