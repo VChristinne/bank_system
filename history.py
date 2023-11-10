@@ -29,10 +29,6 @@ class History:
         self.transactions.append(transaction)
         self.save_transactions()
 
-    def get_transactions(self):
-        self.load_transactions()
-        return self.transactions
-
     def __str__(self):
         self.load_transactions()
         result = "\nTransactions:"

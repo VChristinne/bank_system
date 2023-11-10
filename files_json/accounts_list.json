@@ -2,29 +2,29 @@
   {
     "id_": "123-1",
     "holder": "Nicole",
-    "balance": 2490.0,
-    "limit": 5000.0,
+    "balance": 2490.00,
+    "limit": 5000.00,
     "password": "12345"
   },
   {
     "id_": "123-2",
     "holder": "Yuzu",
-    "balance": 5000.0,
-    "limit": 10000.0,
+    "balance": 5000.00,
+    "limit": 10000.00,
     "password": "6789"
   },
   {
     "id_": "123-3",
     "holder": "Gumball",
-    "balance": 30.0,
-    "limit": 100.0,
+    "balance": 30.00,
+    "limit": 100.00,
     "password": "123123"
   },
   {
     "id_": "123-4",
     "holder": "Darwin",
-    "balance": 50.0,
-    "limit": 150.0,
+    "balance": 50.00,
+    "limit": 150.00,
     "password": "123123"
   }
 ]

@@ -108,11 +108,11 @@ def history_function(username):
             if client['holder'] == username:
                 account = Account(client['id_'], client['holder'], client['balance'], client['limit'],
                                   client['password'])
-                history_text = "\n".join(account.get_history())
+                history_text = "\n\n".join(account.get_history())
                 messagebox.showinfo("Transaction History", history_text)
                 break
         create_home_page(username=client['holder'], balance=account.balance)
-    except ValueError as e:
+    except ValueError:
         messagebox.showerror("Error", "Access to history invalid.")
 
 
@@ -210,8 +210,8 @@ def register_function(id_, holder, balance, limit, password):
         new_account = {
             "id_": id_,
             "holder": holder,
-            "balance": float(balance),
-            "limit": float(limit),
+            "balance": float(f"{balance:.2f}"),
+            "limit": float(f"{limit:.2f}"),
             "password": password
         }
         data.append(new_account)
