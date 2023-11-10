@@ -1,1 +1,30 @@
-[{"id_": "123-1", "holder": "Nicole", "balance": 2521.1, "limit": 5000.0, "password": "12345"}, {"id_": "123-2", "holder": "Yuzu", "balance": 35800.0, "limit": 50000, "password": "6789"}]
+[
+  {
+    "id_": "123-1",
+    "holder": "Nicole",
+    "balance": 2490.0,
+    "limit": 5000.0,
+    "password": "12345"
+  },
+  {
+    "id_": "123-2",
+    "holder": "Yuzu",
+    "balance": 5000.0,
+    "limit": 10000.0,
+    "password": "6789"
+  },
+  {
+    "id_": "123-3",
+    "holder": "Gumball",
+    "balance": 30.0,
+    "limit": 100.0,
+    "password": "123123"
+  },
+  {
+    "id_": "123-4",
+    "holder": "Darwin",
+    "balance": 50.0,
+    "limit": 150.0,
+    "password": "123123"
+  }
+]

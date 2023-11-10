@@ -60,7 +60,13 @@ def withdraw_function(username):
         messagebox.showerror("Error", "Invalid input for withdraw amount.")
 
 
-# TODO: fix account to transfer error
+def get_account_by_username(username, data):
+    for client in data:
+        if client['holder'] == username:
+            return client
+    return None
+
+
 def transfer_function(username):
     data = FileManager.load_data('files_json/accounts_list.json')
 
@@ -69,13 +75,26 @@ def transfer_function(username):
             if client['holder'] == username:
                 account = Account(client['id_'], client['holder'], client['balance'], client['limit'],
                                   client['password'])
-                account_to_transfer = float(tkinter.simpledialog.askstring("Transfer", "Enter account to transfer:"))
-                amount_to_transfer = float(tkinter.simpledialog.askfloat("Transfer", "Enter amount to be transfer:"))
-                account.transfer_to(account_to_transfer, amount_to_transfer)
-                client['balance'] = account.balance
+                account_to_transfer = tkinter.simpledialog.askstring("Transfer", "Enter account to transfer:")
+                amount_to_transfer = float(tkinter.simpledialog.askfloat("Transfer", "Enter amount to be transferred:"))
+                destination_account = next((c for c in data if c['holder'] == account_to_transfer), None)
+
+                if destination_account:
+                    destination = Account(destination_account['id_'], destination_account['holder'],
+                                          destination_account['balance'], destination_account['limit'],
+                                          destination_account['password'])
+                    success = account.transfer_to(destination, amount_to_transfer)
+
+                    if success:
+                        client['balance'] = account.balance
+                        destination_account['balance'] = destination.balance
+                        FileManager.save_data('files_json/accounts_list.json', data)
+                        create_home_page(username=client['holder'], balance=account.balance)
+                    else:
+                        messagebox.showerror("Error", "Insufficient funds for the transfer.")
+                else:
+                    messagebox.showerror("Error", "Destination account not found.")
                 break
-        FileManager.save_data('files_json/accounts_list.json', data)
-        create_home_page(username=client['holder'], balance=account.balance)
     except ValueError:
         messagebox.showerror("Error", "Invalid input for transfer amount.")
 
@@ -92,7 +111,7 @@ def history_function(username):
                 account.get_history()
                 break
         create_home_page(username=client['holder'], balance=account.balance)
-    except ValueError:
+    except ValueError as e:
         messagebox.showerror("Error", "Invalid input for withdraw amount.")
 
 
@@ -190,8 +209,8 @@ def register_function(id_, holder, balance, limit, password):
         new_account = {
             "id_": id_,
             "holder": holder,
-            "balance": balance,
-            "limit": limit,
+            "balance": float(balance),
+            "limit": float(limit),
             "password": password
         }
         data.append(new_account)
