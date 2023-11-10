@@ -41,3 +41,7 @@ class History:
             result += f"\n- {t}"
 
         return result
+
+    def get_transactions(self):
+        self.load_transactions()
+        return [str(transaction) for transaction in self.transactions]

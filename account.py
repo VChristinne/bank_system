@@ -58,7 +58,7 @@ class Account:
             raise ValueError(Fore.RED + "Invalid destination account!" + Fore.RESET)
 
     def get_history(self):
-        return self._history
+        return self._history.get_transactions()
 
     @property
     def balance(self):

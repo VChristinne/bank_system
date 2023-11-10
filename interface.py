@@ -108,11 +108,12 @@ def history_function(username):
             if client['holder'] == username:
                 account = Account(client['id_'], client['holder'], client['balance'], client['limit'],
                                   client['password'])
-                account.get_history()
+                history_text = "\n".join(account.get_history())
+                messagebox.showinfo("Transaction History", history_text)
                 break
         create_home_page(username=client['holder'], balance=account.balance)
     except ValueError as e:
-        messagebox.showerror("Error", "Invalid input for withdraw amount.")
+        messagebox.showerror("Error", "Access to history invalid.")
 
 
 def create_home_page(username, balance):
