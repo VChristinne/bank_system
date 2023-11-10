@@ -109,7 +109,7 @@ def history_function(username):
 
 
 def create_home_page(username, balance):
-    custom_frame = ctk.CTkFrame(master=background, width=600, height=700)
+    custom_frame = ctk.CTkFrame(master=background, width=500, height=550)
     custom_frame.place(relx=0.5, rely=0.5, anchor=tkinter.CENTER)
 
     head_1 = ctk.CTkLabel(master=custom_frame,
@@ -124,7 +124,7 @@ def create_home_page(username, balance):
     head_2.place(x=60, y=120)
 
     budget_info_frame = ctk.CTkFrame(master=custom_frame,
-                                     width=480,
+                                     width=380,
                                      height=80,
                                      fg_color=('#A1A0E8', '#69648E'))
     budget_info_frame.place(x=60, y=180)
@@ -135,36 +135,36 @@ def create_home_page(username, balance):
     budget_info.place(x=20, y=28)
 
     deposit_btn = ctk.CTkButton(master=custom_frame,
-                                width=90,
+                                width=170,
                                 height=80,
                                 text=f'⤵\nDeposit',
                                 font=('SF Pro', 18),
                                 command=lambda: deposit_function(username))
-    deposit_btn.place(x=80, y=300)
+    deposit_btn.place(x=60, y=300)
 
     withdraw_btn = ctk.CTkButton(master=custom_frame,
-                                 width=90,
+                                 width=170,
                                  height=80,
                                  text=f'⤴\nWithdraw',
                                  font=('SF Pro', 18),
                                  command=lambda: withdraw_function(username))
-    withdraw_btn.place(x=190, y=300)
+    withdraw_btn.place(x=270, y=300)
 
     transfer_btn = ctk.CTkButton(master=custom_frame,
-                                 width=90,
+                                 width=170,
                                  height=80,
                                  text=f'↪\nTransfer',
                                  font=('SF Pro', 18),
                                  command=lambda: transfer_function(username))
-    transfer_btn.place(x=300, y=300)
+    transfer_btn.place(x=60, y=420)
 
     history_btn = ctk.CTkButton(master=custom_frame,
-                                width=90,
+                                width=170,
                                 height=80,
                                 text=f'↔\nHistory',
                                 font=('SF Pro', 18),
                                 command=lambda: history_function(username))
-    history_btn.place(x=410, y=300)
+    history_btn.place(x=270, y=420)
 
     return custom_frame
 
